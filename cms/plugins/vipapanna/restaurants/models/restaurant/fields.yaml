@@ -1,0 +1,16 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    restaurantName:
+        label: Meno
+    restaurantImage:
+         label: Obrazok link
+    foods:
+        type: partial
+        path: $/vipapanna/restaurants/controllers/restaurants/_foods.htm
+

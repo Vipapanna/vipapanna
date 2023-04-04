@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Restaurant
+
+# Model Form Field configuration
+form: $/vipapanna/restaurants/models/restaurant/fields.yaml
+
+# Model Class name
+modelClass: Vipapanna\Restaurants\Models\Restaurant
+
+# Default redirect location
+defaultRedirect: vipapanna/restaurants/restaurants
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: vipapanna/restaurants/restaurants/update/:id
+    redirectClose: vipapanna/restaurants/restaurants
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: vipapanna/restaurants/restaurants
+    redirectClose: vipapanna/restaurants/restaurants
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

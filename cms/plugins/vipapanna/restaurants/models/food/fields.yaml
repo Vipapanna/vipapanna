@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    foodName:
+        label: Meno
+    description:
+        label: Popisok
+    values:
+        label: Nutricne hodnoty
+    linkWolt:
+        label: Link Wolt
+    linkFoodPanda:
+        label: Link FoodPanda
+    linkBistro:
+        label: Link Bistro
+    foodImage:
+        label: Obrazok

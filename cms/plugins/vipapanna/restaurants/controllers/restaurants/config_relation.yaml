@@ -1,0 +1,9 @@
+foods:
+    label: foods
+    deferredBinding: true
+    view:
+        list: $/vipapanna/restaurants/models/food/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/vipapanna/restaurants/models/food/fields.yaml
+        recordsPerPage: 10

@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    foodName:
+        label: Meno
+    description:
+        label: Popisok
+    values:
+        label: Nutricne hodnoty
+    foodImage:
+        label: Obrazok link
