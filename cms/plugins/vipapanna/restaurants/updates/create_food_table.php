@@ -21,13 +21,13 @@ return new class extends Migration
             $table->timestamps();
 
             $table->integer('restaurant_id')->nullable();
-            $table->string('foodName');
-            $table->string('description');
+            $table->string('food_name');
+            $table->string('description')->nullable();
             $table->string('values')->nullable();
-            $table->string('linkWolt')->nullable();
-            $table->string('linkFoodPanda')->nullable();
-            $table->string('linkBistro')->nullable();
-            $table->string('foodImage')->nullable();
+            $table->string('link_wolt')->nullable();
+            $table->string('link_foodpanda')->nullable();
+            $table->string('link_bistro')->nullable();
+            $table->string('food_image_link')->nullable();
 
         });
     }

@@ -6,11 +6,11 @@ columns:
     id:
         label: ID
         searchable: true
-    foodName:
+    food_name:
         label: Meno
     description:
         label: Popisok
     values:
         label: Nutricne hodnoty
-    foodImage:
+    food_image_link:
         label: Obrazok link

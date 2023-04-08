@@ -6,5 +6,5 @@ columns:
     id:
         label: ID
         searchable: true
-    restaurantName:
+    restaurant_name:
         label: Meno

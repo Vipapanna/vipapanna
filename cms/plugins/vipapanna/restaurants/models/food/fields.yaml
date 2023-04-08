@@ -6,17 +6,17 @@ fields:
     id:
         label: ID
         disabled: true
-    foodName:
+    food_name:
         label: Meno
     description:
         label: Popisok
     values:
         label: Nutricne hodnoty
-    linkWolt:
+    link_wolt:
         label: Link Wolt
-    linkFoodPanda:
+    link_foodpanda:
         label: Link FoodPanda
-    linkBistro:
+    link_bistro:
         label: Link Bistro
-    foodImage:
-        label: Obrazok
+    food_image_link:
+        label: Obrazok link
