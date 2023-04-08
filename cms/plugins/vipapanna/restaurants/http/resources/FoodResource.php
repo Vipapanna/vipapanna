@@ -15,6 +15,9 @@ class FoodResource extends JsonResource{
             'link_wolt' => $this->link_wolt,
             'link_foodpanda' => $this->link_foodpanda,
             'link_bistro' => $this->link_bistro,
+            'price_wolt'=> $this->price_wolt,
+            'price_foodpanda'=> $this->price_foodpanda,
+            'price_bistro'=> $this->price_bistro,
             'food_image_link' => $this->food_image_link,
         ];
     }

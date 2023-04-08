@@ -20,3 +20,9 @@ fields:
         label: Link Bistro
     food_image_link:
         label: Obrazok link
+    price_wolt:
+        label: cena na Wolt
+    price_foodpanda:
+        label: cena na FoodPanda
+    price_bistro:
+        label: cena na Bistro
