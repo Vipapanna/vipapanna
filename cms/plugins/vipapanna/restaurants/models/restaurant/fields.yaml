@@ -6,10 +6,14 @@ fields:
     id:
         label: ID
         disabled: true
-    restaurantName:
+    restaurant_name:
         label: Meno
-    restaurantImage:
+    restaurant_image_link:
          label: Obrazok link
+    review:
+        label: Hodnotenie
+    address:
+        label: Adresa
     foods:
         type: partial
         path: $/vipapanna/restaurants/controllers/restaurants/_foods.htm

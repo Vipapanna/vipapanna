@@ -8,9 +8,12 @@ use Illuminate\Routing\Controller;
 
 class RestaurantController extends Controller{
 
-    public function restaurant($id){
+    public function restaurantID($id){
         return RestaurantResource::make(Restaurant::findOrFail($id));
     }
 
+    public function restaurant(){
+        return RestaurantResource::collection(Restaurant::all());
+    }
 }
 

@@ -19,8 +19,10 @@ return new class extends Migration
         Schema::create('vipapanna_restaurants_restaurants', function(Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('restaurantName');
-            $table->string('restaurantImage');
+            $table->string('restaurant_name');
+            $table->string('restaurant_image_link');
+            $table->string('review');
+            $table->string('address');
 
         });
     }
