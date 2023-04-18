@@ -8,8 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.13",
     "tailwind-scrollbar-hide": "^1.1.7",
     "vue": "^3.2.47",
+    "vue-awesome-swiper": "^5.0.1",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

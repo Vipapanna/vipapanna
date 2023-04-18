@@ -171,7 +171,34 @@
   
     </section>
   
+    <div class="flex bg-[#4C4556] w-full">
+      <div class="bg-[#4C4556] text-white grid grid-cols-2  items-center justify-center w-[30rem] font-sans" >
+        <a class=" text-xl" href="">About Us</a>
+        <a class=" text-xl" href="">Cookies</a>
+        <a class=" text-xl" href="">FAQs</a>
+        <a class=" text-xl" href="">Contact Us</a>
+  
+      </div>
+      <div>iconka</div>
+    </div>
+
+    
+
+
+
   </section>
+
+
+
+  
+
+
+
+
+
+  
+
+
   </template>
   
   <script>
@@ -180,10 +207,13 @@
   import Searchbar from "./Searchbar.vue";
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
+  import VueAwesomeSwiper from 'vue-awesome-swiper';
+  import 'swiper/swiper-bundle.css';
+
   
   export default {
     
-    components: { Searchbar, Backbtn, Card },
+    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper },
 
 
     data(){
