@@ -1,0 +1,6 @@
+<template>
+    <svg class="relative right-40 bottom-24 hover:cursor-pointer"  width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="2.70711" y1="1.29289" x2="23.9203" y2="22.5061" stroke="#D9D9D9" stroke-width="2"/>
+<line x1="1.29289" y1="22.5061" x2="22.5061" y2="1.29289" stroke="#D9D9D9" stroke-width="2"/>
+</svg>
+</template>
