@@ -192,7 +192,7 @@
   </section>
 </template>
 
-<script>
+<script >
 window.addEventListener("DOMContentLoaded", () => {
   const login = document.querySelector("#login");
   const overlay = document.querySelector("#overlay");
