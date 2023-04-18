@@ -1,15 +1,15 @@
 <template>
   <section
-  id="page">
-    <section class="bg-[#4C4556] flex h-20 justify-between">
+  id="mainpage">
+    <section class="bg-[#4C4556] flex h-20 justify-between">  
       <object
         data="./src/assets/images/vipapanna1.svg"
         type="image/svg+xml"
         class="m-4"
       ></object>
 
-      <Searchbar/>
 
+      <Searchbar/>
 
       <button
         class="w-24 h-12 rounded-2xl bg-white bg-opacity-20 drop-shadow-md text-white font-sans self-center mr-4 hover:opacity-90 cursor-pointer"
@@ -19,18 +19,17 @@
       </button>
 
     </section>
-  
-    
+
     <section
       class="bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center z-50"
       id="overlay"
     >
       <div
-        class="bg-white rounded-2xl flex flex-col w-[24rem] h-[28rem] justify-center items-center absolute"
+        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center absolute hidden"
         id="loginp"
       >
         <Backbtn 
-        class="mt-4" 
+        class="cursor-pointer" 
         @click="close"
         />
 
@@ -72,16 +71,16 @@
         <button
           class="rounded-xl bg-gray-400 bg-opacity-20 w-28 h-9 hover:opacity-80"
         >
-          Log-In
+          Log In
         </button>
       </div>
   
       <div
-        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center hidden"
+        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center hidden pb-10"
         id="regpage"
       >
         <Backbtn 
-        class="mt-4"
+        class="cursor-pointer mt-12"
         @click="regclose"
         />
   
@@ -108,7 +107,7 @@
         />
   
         <button
-          class="rounded-xl bg-gray-400 bg-opacity-20 w-32 h-10 hover:opacity-80 mt-10"
+            class="rounded-xl bg-gray-400 bg-opacity-20 w-28 h-9 hover:opacity-80 mt-5"
         >
           Registracia
         </button>
@@ -120,6 +119,7 @@
         id="resetpasswordpage"
       >
         <Backbtn id="back-btn" 
+        class="cursor-pointer"
         @click="forgotclose"/>
   
         <h1 class="mb-14 text-center">
@@ -137,14 +137,15 @@
         <button
           class="rounded-xl bg-gray-400 bg-opacity-20 w-32 h-10 hover:opacity-80 mt-10"
         >
-          Registracia
+          poslať
         </button>
       </div>
     </section>
-  
-    <section class="flex whitespace-nowrap overflow-auto scrollbar-hide">
+
+  <section class="w-full overflow-auto">
+    <div class="flex whitespace-nowrap overflow-auto scrollbar-hide" ref="container">
       <img
-        src="/src/assets/images/banner1.jpeg"
+      src="/src/assets/images/banner1.jpeg"
         class="h-96 rounded-lg m-4"
         alt=""
       />
@@ -152,20 +153,33 @@
         src="/src/assets/images/banner2.jpeg"
         class="h-96 rounded-lg m-4"
         alt=""
-      />
-      <img
+        />
+        <img
         src="/src/assets/images/banner3.jpeg"
         class="h-96 rounded-lg m-4"
         alt=""
-      />
-      <img
+        />
+        <img
         src="/src/assets/images/banner4.jpeg"
         class="h-96 rounded-lg m-4"
         alt=""
+        />
+        <img
+      src="/src/assets/images/banner1.jpeg"
+        class="h-96 rounded-lg m-4"
+        alt=""
       />
+      <img
+      src="/src/assets/images/banner1.jpeg"
+        class="h-96 rounded-lg m-4"
+        alt=""
+      />
+    </div>
+      <button class="opacity-40 absolute top-64 left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(-600)"> « </button>
+      <button class="opacity-40 absolute top-64 right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
     </section>
-  
-    <section class="grid grid-cols-4 gap-0 mx-16">
+      
+      <section class="grid grid-cols-4 gap-0 mx-16">
      
       <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating"/>
   
@@ -186,6 +200,16 @@
     components: { Searchbar, Backbtn, Card },
 
 
+  methods: {
+    scroll: function (amount) {
+      this.$refs.container.scrollBy({
+        left: amount,
+        behavior: "smooth",
+      });
+    },
+  },
+
+
     data(){
       return {
 
@@ -198,8 +222,8 @@
         ],
  
 
-    popup() {
-      overlay.classList.remove("hidden");
+          popup() {
+          overlay.classList.remove("hidden");
           overlay.classList.add("flex");
           loginp.classList.remove("hidden");
           loginp.classList.add("flex");
