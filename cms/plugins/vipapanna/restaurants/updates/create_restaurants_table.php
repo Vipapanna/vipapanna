@@ -20,7 +20,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('restaurant_name');
-            $table->string('restaurant_image_link');
+            $table->string('restaurant_image_link')->nullable();
             $table->string('review');
             $table->string('address');
 
