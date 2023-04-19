@@ -200,7 +200,7 @@
       </div>
     </div>
 
-    
+    <Location/>
 
   </section>
 
@@ -213,13 +213,15 @@
   import Searchbar from "./Searchbar.vue";
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
+  import Location from "./Location.vue";
   import VueAwesomeSwiper from 'vue-awesome-swiper';
   import 'swiper/swiper-bundle.css';
+import Location from './Location.vue';
 
   
   export default {
     
-    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper },
+    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
 
 
   methods: {
