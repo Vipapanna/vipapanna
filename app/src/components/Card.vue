@@ -6,7 +6,7 @@
         <h1 class="text-2xl mt-2 ml-4">{{ title }}</h1>
 
         <div class="flex flex-row ml-3 mb-2  ">
-          <img v-for="index in rating" :key="index" src="src/assets/images/rating-star.png" alt="">
+          <img v-for="index in rating" :key="index" src="" alt="">
 
         </div>
       </div>
