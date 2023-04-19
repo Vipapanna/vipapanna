@@ -213,10 +213,9 @@
   import Searchbar from "./Searchbar.vue";
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
-  import Location from "./Location.vue";
+  import Location from "./location.vue";
   import VueAwesomeSwiper from 'vue-awesome-swiper';
   import 'swiper/swiper-bundle.css';
-import Location from './Location.vue';
 
   
   export default {
