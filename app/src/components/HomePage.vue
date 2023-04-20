@@ -222,7 +222,7 @@
     components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
 
   methods: {
-    scroll: function (amount) {
+    scroll(amount) {
       this.$refs.container.scrollBy({
         left: amount,
         behavior: "smooth",
