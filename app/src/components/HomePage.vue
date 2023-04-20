@@ -216,12 +216,10 @@
   import Location from "./location.vue";
   import VueAwesomeSwiper from 'vue-awesome-swiper';
   import 'swiper/swiper-bundle.css';
-
   
   export default {
     
     components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
-
 
   methods: {
     scroll: function (amount) {
@@ -230,22 +228,7 @@
         behavior: "smooth",
       });
     },
-  },
-
-
-    data(){
-      return {
-
-        cards: [ 
-        {
-          title: "McDonalds",
-          image: 'https://imageproxy.wolt.com/venue/5e7380c5908a43f00c9e29dd/9e629e20-4437-11eb-b6ee-d6ad5cf43059_mcd_hero_photo_1010x544px.jpg?w=200',
-          rating: 5
-        },
-        ],
- 
-
-          popup() {
+    popup() {
           overlay.classList.remove("hidden");
           overlay.classList.add("flex");
           loginp.classList.remove("hidden");
@@ -280,15 +263,23 @@
           resetpasswordpage.classList.add("hidden");
           resetpasswordpage.classList.remove("flex");
         },
+  },
+
+    data(){
+      return {
+        cards: [ 
+        {
+          title: "McDonalds",
+          image: 'https://imageproxy.wolt.com/venue/5e7380c5908a43f00c9e29dd/9e629e20-4437-11eb-b6ee-d6ad5cf43059_mcd_hero_photo_1010x544px.jpg?w=200',
+          rating: 5
+        },
+        ],
       }
     }
   }
   </script>
 
-  <style scoped>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
-
-
-
 </style>
   
