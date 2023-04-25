@@ -208,9 +208,6 @@
   <router-link to="/"> Home </router-link>
   <router-link to="/RestaurantPage"> restaurant </router-link>
 
-<div v-for="post in posts" :key="post.id">
-  <h2>{{ post.id }}</h2>
-</div>
   </template>
 
 
@@ -234,8 +231,8 @@
     },
     mounted(){
       axios
-        .get('https://jsonplaceholder.typicode.com/posts/1')
-        .then(response => this.posts = response.data)
+        .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
+        .then(response => console.log(response))
     },
 
     components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
