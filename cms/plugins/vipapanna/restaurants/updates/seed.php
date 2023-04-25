@@ -1,6 +1,7 @@
 <?php namespace Vipapanna\Restaurants\Updates;
 
 use Vipapanna\Restaurants\Models\Restaurant;
+use Vipapanna\Restaurants\Models\Food;
 use October\Rain\Database\Updates\Seeder;
 use Faker;
 
