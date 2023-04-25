@@ -90,14 +90,12 @@
           class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
           placeholder="example@gmail.com"
           name=""
-          id="e1"
         />
         <input
           type="password"
           class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
           placeholder="Heslo"
           name=""
-          id="p1"
         />
         <input
           type="password"
@@ -203,13 +201,19 @@
 
     <Location/>
 
+
+    
   </section>
 
   <router-link to="/"> Home </router-link>
   <router-link to="/RestaurantPage"> restaurant </router-link>
 
-
+<div v-for="post in posts" :key="post.id">
+  <h2>{{ post.id }}</h2>
+</div>
   </template>
+
+
   
   <script>
   
@@ -220,10 +224,22 @@
   import Location from "./location.vue";
   import VueAwesomeSwiper from 'vue-awesome-swiper';
   import 'swiper/swiper-bundle.css';
+  import axios from 'axios'
   
   export default {
-    
+    data(){
+      return{
+        post: []
+      }
+    },
+    mounted(){
+      axios
+        .get('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => this.posts = response.data)
+    },
+
     components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
+
 
   methods: {
     scroll(amount) {
