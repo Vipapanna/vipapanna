@@ -2,12 +2,13 @@
   <section
   id="mainpage">
     <section class="bg-[#4C4556] flex h-20 justify-between">  
+      <div class=""  @click="goToHomePage">
       <object
         data="./src/assets/images/vipapanna1.svg"
         type="image/svg+xml"
         class="m-4"
       ></object>
-
+    </div>
 
       <Searchbar/>
 
@@ -89,14 +90,12 @@
           class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
           placeholder="example@gmail.com"
           name=""
-          id="e1"
         />
         <input
           type="password"
           class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
           placeholder="Heslo"
           name=""
-          id="p1"
         />
         <input
           type="password"
@@ -200,12 +199,18 @@
       </div>
     </div>
 
-    
+    <Location/>
 
+
+    
   </section>
 
+  <router-link to="/"> Home </router-link>
+  <router-link to="/RestaurantPage"> restaurant </router-link>
 
   </template>
+
+
   
   <script>
   
@@ -213,38 +218,34 @@
   import Searchbar from "./Searchbar.vue";
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
+  import Location from "./location.vue";
   import VueAwesomeSwiper from 'vue-awesome-swiper';
   import 'swiper/swiper-bundle.css';
-
+  import axios from 'axios'
   
   export default {
-    
-    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper },
+    data(){
+      return{
+        post: []
+      }
+    },
+    mounted(){
+      axios
+        .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
+        .then(response => console.log(response))
+    },
+
+    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
 
 
   methods: {
-    scroll: function (amount) {
+    scroll(amount) {
       this.$refs.container.scrollBy({
         left: amount,
         behavior: "smooth",
       });
     },
-  },
-
-
-    data(){
-      return {
-
-        cards: [ 
-        {
-          title: "McDonalds",
-          image: 'https://imageproxy.wolt.com/venue/5e7380c5908a43f00c9e29dd/9e629e20-4437-11eb-b6ee-d6ad5cf43059_mcd_hero_photo_1010x544px.jpg?w=200',
-          rating: 5
-        },
-        ],
- 
-
-          popup() {
+    popup() {
           overlay.classList.remove("hidden");
           overlay.classList.add("flex");
           loginp.classList.remove("hidden");
@@ -279,15 +280,26 @@
           resetpasswordpage.classList.add("hidden");
           resetpasswordpage.classList.remove("flex");
         },
+        goToHomePage() {
+          window.location.reload();
+}
+  },
+
+    data(){
+      return {
+        cards: [ 
+        {
+          title: "McDonalds",
+          image: 'https://imageproxy.wolt.com/venue/5e7380c5908a43f00c9e29dd/9e629e20-4437-11eb-b6ee-d6ad5cf43059_mcd_hero_photo_1010x544px.jpg?w=200',
+          rating: 5
+        },
+        ],
       }
     }
   }
   </script>
 
-  <style scoped>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
-
-
-
 </style>
   
