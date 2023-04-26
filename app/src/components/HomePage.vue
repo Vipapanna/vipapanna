@@ -207,9 +207,11 @@
 
   <router-link to="/"> Home </router-link>
   <router-link to="/RestaurantPage"> restaurant </router-link>
-
+<div v-for="post in posts" :key="post.id">
+<h2>{{ post.id }} {{ post.title }}</h2>
+<p>{{ post.body }}</p>
+</div>
   </template>
-
 
   
   <script>
@@ -220,20 +222,38 @@
   import Card from "./Card.vue";
   import Location from "./location.vue";
   import VueAwesomeSwiper from 'vue-awesome-swiper';
-  import 'swiper/swiper-bundle.css';
   import axios from 'axios'
   
   export default {
-    data(){
-      return{
-        post: []
-      }
-    },
+
     mounted(){
       axios
         .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
-        .then(response => console.log(response))
-    },
+        .then(response => {
+          if (Array.isArray(response.data.data)) {
+          console.log(response)
+          const titles = response.data.data.map(item => item.restaurant_name);
+          // const images = response.data.data.map(item => item.restaurant_image_link);
+          const ratings = response.data.data.map(item => item.review);
+          
+          for (let i = 0; i < titles.length; i++) {
+            
+            this.cards.push({
+              title: titles[i],
+              // image: images[i],
+              rating_text: ratings[i],
+              rating: Math.floor(ratings[i]),
+
+            })
+          }
+        }else {
+          console.error("piče")
+        }
+    })
+    .catch(error => {
+          console.error(error);
+        })
+      },
 
     components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
 
@@ -289,9 +309,10 @@
       return {
         cards: [ 
         {
-          title: "McDonalds",
+          title: "",
           image: 'https://imageproxy.wolt.com/venue/5e7380c5908a43f00c9e29dd/9e629e20-4437-11eb-b6ee-d6ad5cf43059_mcd_hero_photo_1010x544px.jpg?w=200',
-          rating: 5
+          rating_text: 5,
+          rating: 5,
         },
         ],
       }
