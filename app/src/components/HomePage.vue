@@ -102,6 +102,7 @@
         name=""
         id="p1"
       />
+<<<<<<< Updated upstream
 
       <button
         class="rounded-xl bg-gray-400 bg-opacity-20 w-32 h-10 hover:opacity-80 mt-10"
@@ -115,6 +116,48 @@
       id="reset-password-page"
     >
       <Backbtn id="back-btn" />
+=======
+    </div>
+      <button class="opacity-40 absolute top-64 left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(-600)"> « </button>
+      <button class="opacity-40 absolute top-64 right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
+    </section>
+      
+      <section class="grid grid-cols-4 gap-0 mx-16">
+     
+      <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating"/>
+  
+    </section>
+  
+    <div class="flex bg-[#4C4556]  w-full items-center justify-center h-44 ">
+      <div class="bg-[#4C4556] text-white grid grid-cols-2  items-center justify-center text-3xl gap-10 mb-4 mr-44 " >
+        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">About Us</a>
+        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">Cookies</a>
+        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">FAQs</a>
+        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">Contact Us</a>
+      </div>
+      
+      <div class="flex flex-col w-1/2  " > 
+        <div class=" flex flex-row  space-x-12 self-center" >
+        
+          <object data="./src/assets/images/fb-logo.svg" type="image/svg+xml"></object>
+          <object data="./src/assets/images/ig-logo.svg" type="image/svg+xml"></object>
+          <object data="./src/assets/images/tw-logo.svg" type="image/svg+xml"></object>
+          
+        </div>
+        
+        
+          <!-- <div class=" text-white space-x-6 text-sm  flex items-center" >
+            <a href="">© Vipapanna 2023</a>
+            <a href="">Vseobecne zmluvne podmienky</a>
+            <a href="">Zasady ochrany osobnych udajov</a>
+          </div> -->
+      
+
+      </div>
+    </div>
+
+    <!-- <Location/> -->
+>>>>>>> Stashed changes
 
       <h1 class="mb-14 text-center">
         Na zadanú emailovu adresu vám bude <br />
@@ -136,6 +179,7 @@
     </div>
   </section>
 
+<<<<<<< Updated upstream
   <section class="flex overflow-auto scrollbar-hide">
     <img
       src="/src/assets/images/banner1.jpeg"
@@ -158,6 +202,10 @@
       alt=""
     />
   </section>
+=======
+  <!-- <router-link to="/"> Home </router-link>
+  <router-link to="/RestaurantPage"> restaurant </router-link> -->
+>>>>>>> Stashed changes
 
   <section class="grid grid-cols-4 gap-0 mx-16">
     <Card />
