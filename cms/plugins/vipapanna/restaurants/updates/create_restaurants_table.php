@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('restaurant_name');
             $table->string('restaurant_image_link')->nullable();
-            $table->string('review');
+            $table->float('review');
             $table->string('address');
 
         });
