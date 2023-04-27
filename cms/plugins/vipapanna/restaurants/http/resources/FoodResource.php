@@ -13,10 +13,10 @@ class FoodResource extends JsonResource{
             'description' => $this->description,
             'values' => $this->values,
             'link_wolt' => $this->link_wolt,
-            'link_foodpanda' => $this->link_foodpanda,
+            'link_foodora' => $this->link_foodoraa,
             'link_bistro' => $this->link_bistro,
             'price_wolt'=> $this->price_wolt,
-            'price_foodpanda'=> $this->price_foodpanda,
+            'price_foodora'=> $this->price_foodora,
             'price_bistro'=> $this->price_bistro,
             'food_image_link' => $this->food_image_link,
         ];
