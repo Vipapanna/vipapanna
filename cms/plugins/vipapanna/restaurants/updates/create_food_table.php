@@ -25,10 +25,10 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('values')->nullable();
             $table->string('link_wolt')->nullable();
-            $table->string('link_foodpanda')->nullable();
+            $table->string('link_foodora')->nullable();
             $table->string('link_bistro')->nullable();
             $table->string('price_wolt')->nullable();
-            $table->string('price_foodpanda')->nullable();
+            $table->string('price_foodora')->nullable();
             $table->string('price_bistro')->nullable();
             $table->string('food_image_link')->nullable();
 

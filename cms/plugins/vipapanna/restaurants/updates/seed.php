@@ -27,10 +27,10 @@ class SeedAllTables extends Seeder{
                     'food_name' => 'dummy',
                     'description' => 'Lorem ipsum dolor sit amet. Non quidem architecto in eligendi eligendi a voluptatem eveniet qui debitis neque.',
                     'link_wolt' => $faker->imageUrl(),
-                    'link_foodpanda' => $faker->imageUrl(),
+                    'link_foodora' => $faker->imageUrl(),
                     'link_bistro' => $faker->imageUrl(),
                     'price_wolt' => $faker->numberBetween($min = 1, $max = 100),
-                    'price_foodpanda' => $faker->numberBetween($min = 1, $max = 100),
+                    'price_foodora' => $faker->numberBetween($min = 1, $max = 100),
                     'price_bistro' => $faker->numberBetween($min = 1, $max = 100),
                     'food_image_link' => $faker->imageUrl()
                 ]);
