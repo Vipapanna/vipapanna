@@ -20,7 +20,11 @@ class SeedAllTables extends Seeder{
             ]);
         }
 
+<<<<<<< Updated upstream
 
+=======
+        for ($j = 0; $j < 15; $j++) {
+>>>>>>> Stashed changes
             for ($i = 0; $i < 100; $i++) {
                 Food::create([
                     'restaurant_id' => $i + 1,
@@ -35,6 +39,10 @@ class SeedAllTables extends Seeder{
                     'food_image_link' => $faker->imageUrl()
                 ]);
             }
+<<<<<<< Updated upstream
 
+=======
+        }
+>>>>>>> Stashed changes
     }
 }
