@@ -2,13 +2,10 @@
   <section
   id="mainpage">
     <section class="bg-[#4C4556] flex h-20 justify-between">  
-      <div class=""  @click="goToHomePage">
-      <object
-        data="./src/assets/images/vipapanna1.svg"
-        type="image/svg+xml"
-        class="m-4"
-      ></object>
-    </div>
+
+      <div class="h-100 w-100">
+        <img @click="goToHomePage" src="src\assets\images\vipapanna1.svg" alt="">
+      </div>
 
       <Searchbar/>
 
@@ -191,7 +188,7 @@
       
 
 
-      
+
         <router-link to="/"> Home </router-link>
         <router-link to="/RestaurantPage"> restaurant </router-link>
   
