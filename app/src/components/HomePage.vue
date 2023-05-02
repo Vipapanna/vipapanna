@@ -184,20 +184,7 @@
   
     </section>
   
-    <div class="flex bg-[#4C4556] w-full items-center justify-center h-44 ">
-      <div class="bg-[#4C4556] text-white grid grid-cols-2  items-center justify-center  w-60 text-3xl  gap-10" >
-        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">About Us</a>
-        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">Cookies</a>
-        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">FAQs</a>
-        <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">Contact Us</a>
-      </div>
-  
-      <div class=" flex flex-row  space-x-12" >
-        <object data="./src/assets/images/fb-logo.svg" type="image/svg+xml"></object>
-        <object data="./src/assets/images/ig-logo.svg" type="image/svg+xml"></object>
-        <object data="./src/assets/images/tw-logo.svg" type="image/svg+xml"></object>
-      </div>
-    </div>
+    <Footer/>
 
     <Location/>
 
@@ -216,6 +203,7 @@
   
   
   import Searchbar from "./Searchbar.vue";
+  import Footer from "./Footer.vue";
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
   import Location from "./location.vue";
@@ -235,7 +223,7 @@
         .then(response => console.log(response))
     },
 
-    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location },
+    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location, Footer },
 
 
   methods: {
