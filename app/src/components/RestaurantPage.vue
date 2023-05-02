@@ -27,8 +27,53 @@
       </div>
     </div>
 
-    <div class="" >
-      <h1>Ponuka</h1>
+    <div class="grid grid-cols-2 gap-4 mt-10 mx-9 items-center" >
+      
+
+      <div class="justify-center items-center flex mb-8" >
+        <div class="flex flex-row border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
+          <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
+          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+        </div>
+      </div>
+
+      <div class="justify-center items-center flex mb-8 self-center" >
+        <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
+          <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
+          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+        </div>
+      </div>
+
+      <div class="justify-center items-center flex mb-8 " >
+      <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
+          <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
+          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+        </div>
+      </div>
+
+      <div class="justify-center items-center flex mb-8" >
+        <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
+          <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
+          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+        </div>
+      </div>
+
+      <div class="justify-center items-center flex mb-8" >
+        <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
+          <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
+          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+        </div>
+      </div>
+
+      <div class="justify-center items-center flex mb-8" >
+        <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
+          <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
+          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+        </div>
+      </div>
+
+
+
 
 
 
