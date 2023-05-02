@@ -1,17 +1,17 @@
 <template>
   <div>
-    <input v-model="searchTerm" @input="debouncedHandleSearchInput" placeholder="Search location..." class="w-full p-2 rounded-md">
+    <input v-model="searchTerm" @input="debouncedHandleSearchInput" placeholder="Search location..." class="w-full p-2 rounded-md self-center">
     <ul v-if="searchResults.length > 0" class="mt-2">
       <li v-for="result in visibleResults" :key="result.place_id" @click="selectLocation(result)" class="cursor-pointer p-2 rounded-md hover:bg-gray-100">
         {{ result.display_name.replace(/, Slovakia$/, '') }}
       </li>
     </ul>
     <div v-if="selectedLocation" class="mt-4">
-      <h3 class="font-bold">Your Selected Location:</h3>
+      <h3 class="font-bold">Vaša lokácia:</h3>
       <ul class="list-disc list-inside mt-2">
-        <li>City: {{ selectedLocation.city }}</li>
+        <li class="list-none"><b>Mesto:</b> {{ selectedLocation.city }}</li>
         <li v-if="selectedLocation.street">Street: {{ selectedLocation.street }}</li>
-        <li>Country: {{ selectedLocation.country }}</li>
+        <li class="list-none"> <b>Štát:</b> {{ selectedLocation.country }}</li>
       </ul>
     </div>
   </div>

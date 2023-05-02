@@ -3,7 +3,7 @@
   id="mainpage">
     <section class="bg-[#4C4556] flex h-20 justify-between">  
 
-      <div class="h-100 w-100">
+      <div class="h-100 w-100 ">
         <img @click="goToHomePage" src="/src/assets/images/vipapanna1.svg" alt="" class="mt-3 ml-3">
       </div>
 
@@ -175,7 +175,7 @@
     <button class="opacity-40 absolute top-64 right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
     </section>
    
-    <div class=" flex items-center justify-center">
+    <div class=" flex items-center justify-center flex-col">
       <div @click="showLocation = !showLocation" class=" cursor-pointer">Location</div>
       <div v-if="showLocation">
         <location />
