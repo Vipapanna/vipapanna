@@ -14,7 +14,7 @@ class SeedAllTables extends Seeder{
 
             Restaurant::create([
                 'restaurant_name' => 'test',
-                'review' => $faker->randomFloat($nbMaxDecimals = 1, $min = 0, $max = 5),
+                'review' => $faker->randomFloat($nbMaxDecimals = 1, $min = 1, $max = 5),
                 'address' => $faker->address,
                 'restaurant_image_link' => $faker->imageUrl()
             ]);
