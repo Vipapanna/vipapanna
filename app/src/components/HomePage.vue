@@ -292,12 +292,7 @@
     data(){
       return {
         cards: [ 
-        {
-          title: "",
-          image: '',
-          rating: "",
-          star:"",
-        },
+
         ],
         showLocation: false
       }
