@@ -20,6 +20,11 @@
 
     </section>
 
+    <div class="bg-[url('src/assets/images/reštauracia.png')] text-white" >
+      <h1 class=" text-6xl ml-5 mt-8" >McDonalds</h1>
+      
+    </div>
+
     <Footer/>
 
     

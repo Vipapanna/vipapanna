@@ -235,7 +235,7 @@
     },
     popup() {
           overlay.classList.remove("hidden");
-          overlay.classList.add("flex");
+          overlay.classList.add("fl ex");
           loginp.classList.remove("hidden");
           loginp.classList.add("flex");
         },
