@@ -4,7 +4,7 @@
     <section class="bg-[#4C4556] flex h-20 justify-between">  
 
       <div class="h-100 w-100">
-        <img @click="goToHomePage" src="src\assets\images\vipapanna1.svg" alt="" class="mt-3 ml-3">
+        <img @click="goToHomePage" src="@/assets/images/vipapanna1.svg" alt="" class="mt-3 ml-3">
       </div>
 
       <Searchbar/>
