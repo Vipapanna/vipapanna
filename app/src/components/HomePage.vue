@@ -176,16 +176,16 @@
     </section>
    
     <div class="">
-      <button @click="showLocation = !showLocation">Show Location</button>
+      <button @click="showLocation = !showLocation" class="bg-[#0284c7]">Show Location</button>
       <div v-if="showLocation">
         <location />
       </div>
     </div>
     
+    <router-link to="/RestaurantPage"> restaurant </router-link>
+    
     <section class="grid grid-cols-4 gap-0 mx-16">
 
-      <router-link to="/"> Home </router-link>
-      <router-link to="/RestaurantPage"> restaurant </router-link>
       
       <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
     </section>
