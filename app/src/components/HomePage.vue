@@ -2,13 +2,10 @@
   <section
   id="mainpage">
     <section class="bg-[#4C4556] flex h-20 justify-between">  
-      <div class=""  @click="goToHomePage">
-      <object
-        data="./src/assets/images/vipapanna1.svg"
-        type="image/svg+xml"
-        class="m-4"
-      ></object>
-    </div>
+
+      <div class="h-100 w-100">
+        <img @click="goToHomePage" src="src\assets\images\vipapanna1.svg" alt="">
+      </div>
 
       <Searchbar/>
 
@@ -174,30 +171,31 @@
         alt=""
       />
     </div>
-      <button class="opacity-40 absolute top-64 left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(-600)"> « </button>
-      <button class="opacity-40 absolute top-64 right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
+    <button class="opacity-40 absolute top-64 left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(-600)"> « </button>
+    <button class="opacity-40 absolute top-64 right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
     </section>
       
       <section class="grid grid-cols-4 gap-0 mx-16">
+        
+        <button @click="showLocation = !showLocation">Show Location</button>
+        <div v-if="showLocation">
+          <location />
+        </div>
      
-      <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
-  
-    </section>
+        <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+        
+      </section>
+      
+
+
+
+        <router-link to="/"> Home </router-link>
+        <router-link to="/RestaurantPage"> restaurant </router-link>
   
     <Footer/>
 
-    <Location/>
-
-
     
   </section>
-
-  <router-link to="/"> Home </router-link>
-  <router-link to="/RestaurantPage"> restaurant </router-link>
-<div v-for="post in posts" :key="post.id">
-<h2>{{ post.id }} {{ post.title }}</h2>
-<p>{{ post.body }}</p>
-</div>
   </template>
 
   
@@ -302,12 +300,13 @@
           star:"",
         },
         ],
+        showLocation: false
       }
     }
   }
   </script>
 
-<style scoped>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 </style>
   
