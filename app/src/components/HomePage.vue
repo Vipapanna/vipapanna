@@ -180,7 +180,7 @@
       
       <section class="grid grid-cols-4 gap-0 mx-16">
      
-      <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating"/>
+      <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
   
     </section>
   
@@ -233,17 +233,16 @@
           if (Array.isArray(response.data.data)) {
           console.log(response)
           const titles = response.data.data.map(item => item.restaurant_name);
-          // const images = response.data.data.map(item => item.restaurant_image_link);
+          const images = response.data.data.map(item => item.restaurant_image_link);
           const ratings = response.data.data.map(item => item.review);
           
           for (let i = 0; i < titles.length; i++) {
             
             this.cards.push({
               title: titles[i],
-              // image: images[i],
-              rating_text: ratings[i],
-              rating: Math.floor(ratings[i]),
-
+              //image: images[i],
+              rating: ratings[i],
+              star: Math.floor(ratings[i]),
             })
           }
         }else {
@@ -310,9 +309,9 @@
         cards: [ 
         {
           title: "",
-          image: 'https://imageproxy.wolt.com/venue/5e7380c5908a43f00c9e29dd/9e629e20-4437-11eb-b6ee-d6ad5cf43059_mcd_hero_photo_1010x544px.jpg?w=200',
-          rating_text: 5,
-          rating: 5,
+          image: '',
+          rating: "",
+          star:"",
         },
         ],
       }
