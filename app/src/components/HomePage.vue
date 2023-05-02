@@ -4,7 +4,7 @@
     <section class="bg-[#4C4556] flex h-20 justify-between">  
 
       <div class="h-100 w-100">
-        <img @click="goToHomePage" src="src\assets\images\vipapanna1.svg" alt="">
+        <img @click="goToHomePage" src="src\assets\images\vipapanna1.svg" alt="" class="mt-3 ml-3">
       </div>
 
       <Searchbar/>
@@ -23,7 +23,7 @@
       id="overlay"
     >
       <div
-        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center absolute hidden"
+        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center absolute"
         id="loginp"
       >
         <Backbtn 
@@ -174,23 +174,22 @@
     <button class="opacity-40 absolute top-64 left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(-600)"> « </button>
     <button class="opacity-40 absolute top-64 right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
     </section>
+   
+    <div class="">
+      <button @click="showLocation = !showLocation">Show Location</button>
+      <div v-if="showLocation">
+        <location />
+      </div>
+    </div>
+    
+    <section class="grid grid-cols-4 gap-0 mx-16">
+
+      <router-link to="/"> Home </router-link>
+      <router-link to="/RestaurantPage"> restaurant </router-link>
       
-      <section class="grid grid-cols-4 gap-0 mx-16">
-        
-        <button @click="showLocation = !showLocation">Show Location</button>
-        <div v-if="showLocation">
-          <location />
-        </div>
-     
-        <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
-        
-      </section>
-      
+      <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+    </section>
 
-
-
-        <router-link to="/"> Home </router-link>
-        <router-link to="/RestaurantPage"> restaurant </router-link>
   
     <Footer/>
 
@@ -252,7 +251,7 @@
     },
     popup() {
           overlay.classList.remove("hidden");
-          overlay.classList.add("fl ex");
+          overlay.classList.add("flex");
           loginp.classList.remove("hidden");
           loginp.classList.add("flex");
         },
