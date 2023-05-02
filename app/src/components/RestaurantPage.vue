@@ -3,7 +3,7 @@
 
       <div class="h-100 w-100">
         <router-link to="/">
-        <img  src="src\assets\images\vipapanna1.svg" alt="" class="mt-3 ml-3">
+        <img  src="src/assets/images/vipapanna1.svg" alt="" class="mt-3 ml-3">
         </router-link>
       </div>
 
