@@ -19,11 +19,27 @@
       </button>
 
     </section>
-
-    <div class="bg-[url('src/assets/images/reštauracia.png')] text-white" >
-      <h1 class=" text-6xl ml-5 mt-8" >McDonalds</h1>
+  <section style="font-family: 'Cabin', sans-serif;" >
+    <div class=" text-white bg-[url('/src/assets/images/reštauracia.png')]" >
       
+      
+      <div  class=" flex flex-col pl-10 pt-14 pb-20 " >
+        <h1 class=" text-6xl " >McDonalds</h1>
+        <h2 class="text-2xl" >RATING</h2>
+      </div>
     </div>
+
+    <div class="" >
+      <h1>Ponuka</h1>
+
+
+
+    </div>
+  </section>
+
+
+
+
 
     <Footer/>
 
@@ -40,3 +56,7 @@ export default{
     components: { Searchbar, Footer, }
 } 
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+</style>
