@@ -175,8 +175,8 @@
     <button class="opacity-40 absolute top-64 right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
     </section>
    
-    <div class="">
-      <button @click="showLocation = !showLocation" class="bg-[#0284c7]">Show Location</button>
+    <div class=" flex items-center justify-center">
+      <div @click="showLocation = !showLocation" class=" cursor-pointer">Location</div>
       <div v-if="showLocation">
         <location />
       </div>
