@@ -26,15 +26,9 @@ class SeedAllTables extends Seeder{
                     'restaurant_id' => $i + 1,
                     'food_name' => 'dummy',
                     'description' => 'Lorem ipsum dolor sit amet. Non quidem architecto in eligendi eligendi a voluptatem eveniet qui debitis neque.',
-<<<<<<< Updated upstream
-                    'link_wolt' => $faker->imageUrl(),
-                    'link_foodora' => $faker->imageUrl(),
-                    'link_bistro' => $faker->imageUrl(),
-=======
                     'link_wolt' => 'https://wolt.com/sk/discovery/restaurants',
                     'link_foodora' => 'https://www.foodora.sk/',
                     'link_bistro' => 'https://www.bistro.sk/',
->>>>>>> Stashed changes
                     'price_wolt' => $faker->numberBetween($min = 1, $max = 100),
                     'price_foodora' => $faker->numberBetween($min = 1, $max = 100),
                     'price_bistro' => $faker->numberBetween($min = 1, $max = 100),
