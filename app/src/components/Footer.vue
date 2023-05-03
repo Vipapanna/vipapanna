@@ -1,6 +1,6 @@
 <template>
     <div class="flex bg-[#4C4556] w-full items-center justify-center h-44 spaxe ">
-      <div class="bg-[#4C4556] text-white grid grid-cols-2  items-center justify-center  w-60 text-3xl  gap-10" >
+      <div class="bg-[#4C4556] text-white grid grid-cols-2  items-center justify-center  w-1/2 text-3xl  gap-10" >
         <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">About Us</a>
         <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">Cookies</a>
         <a  style="font-family: 'Cabin', sans-serif;" class=" text-xl" href="">FAQs</a>

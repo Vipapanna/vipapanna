@@ -10,5 +10,6 @@
         Route::get('restaurants', [RestaurantController::class, 'restaurant']);
         Route::get('food/{food_id}', [FoodController::class, 'food']);
         Route::get('restaurant/food/{restaurant_id}', [FoodController::class, 'restaurantFoods']);
+        Route::get('test', [FoodController::class, 'test']);
     });
 

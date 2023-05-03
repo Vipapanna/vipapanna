@@ -3,7 +3,7 @@
 
       <div class="h-100 w-100">
         <router-link to="/">
-        <img  src="src/assets/images/vipapanna1.svg" alt="" class="mt-3 ml-3">
+        <img  src="/src/assets/images/vipapanna1.svg" alt="" class="mt-3 ml-3">
         </router-link>
       </div>
 
@@ -27,48 +27,48 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4 mt-10 mx-9 items-center" >
+    <div class="grid grid-cols-2 gap-4 mt-10 mx-20 items-center" >
       
 
       <div class="justify-center items-center flex mb-8" >
         <div class="flex flex-row border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
           <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
-          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+          <img class="ml-auto h-[9rem] m-2" src="/src/assets/images/big-mac.png" alt="">
         </div>
       </div>
 
       <div class="justify-center items-center flex mb-8 self-center" >
         <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
           <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
-          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+          <img class="ml-auto h-[9rem] m-2" src="/src/assets/images/big-mac.png" alt="">
         </div>
       </div>
 
       <div class="justify-center items-center flex mb-8 " >
       <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
           <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
-          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+          <img class="ml-auto h-[9rem] m-2" src="/src/assets/images/big-mac.png" alt="">
         </div>
       </div>
 
       <div class="justify-center items-center flex mb-8" >
         <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
           <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
-          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+          <img class="ml-auto h-[9rem] m-2" src="/src/assets/images/big-mac.png" alt="">
         </div>
       </div>
 
       <div class="justify-center items-center flex mb-8" >
         <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
           <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
-          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+          <img class="ml-auto h-[9rem] m-2" src="/src/assets/images/big-mac.png" alt="">
         </div>
       </div>
 
       <div class="justify-center items-center flex mb-8" >
         <div class="flex flex-row  border-gray-300 border-2 items-center w-[50rem] rounded-xl " >
           <h3 class="text-3xl mx-auto text-gray-400" >Big Mac Bacon</h3>
-          <img class="ml-auto h-[9rem]" src="/src/assets/images/big-mac.png" alt="">
+          <img class="ml-auto h-[9rem] m-2" src="/src/assets/images/big-mac.png" alt="">
         </div>
       </div>
 
