@@ -22,8 +22,8 @@
       
       
       <div  class=" flex flex-col pl-10 pt-14 pb-20 " >
-        <h1 class=" text-6xl " >McDonalds</h1>
-        <h2 class="text-2xl" >RATING</h2>
+        <h1 class=" text-6xl " >{{ selectedCard.title }}</h1>
+        <h2 class="text-2xl" >{{ selectedCard.rating }}</h2>
       </div>
     </div>
 
@@ -81,7 +81,7 @@
   </section>
 
 
-
+  <h1></h1>
 
 
     <Footer/>
@@ -94,12 +94,27 @@
 <script>
 import Searchbar from "./Searchbar.vue";
 import Footer from "./Footer.vue";
+
 export default{
     
-    components: { Searchbar, Footer, }
-} 
-</script>
+    components: { Searchbar, Footer, },
 
+    computed: {
+    selectedCard() {
+      return this.$store.state.selectedCard
+    }
+  },
+  mounted() {
+
+  },
+  methods: {
+    selectCard(card) {
+      this.$store.commit('setSelectedCard', card)
+      localStorage.setItem('selectedCardData', JSON.stringify(card))
+    }
+  }
+}
+</script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 </style>

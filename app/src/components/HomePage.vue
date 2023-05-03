@@ -185,9 +185,8 @@
     <router-link to="/RestaurantPage"> restaurant </router-link>
     
     <section class="grid grid-cols-4 gap-0 mx-16">
-
       
-      <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+      <Card v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star" @click="selectCard(card)"/>
     </section>
 
   
@@ -206,41 +205,19 @@
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
   import Location from "./location.vue";
-  import axios from 'axios'
   
   export default {
 
-    mounted(){
-      axios
-        .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
-        .then(response => {
-          if (Array.isArray(response.data.data)) {
-          console.log(response)
-          const titles = response.data.data.map(item => item.restaurant_name);
-          const images = response.data.data.map(item => item.restaurant_image_link);
-          const ratings = response.data.data.map(item => item.review);
-          
-          for (let i = 0; i < titles.length; i++) {
-            
-            this.cards.push({
-              title: titles[i],
-              //image: images[i],
-              rating: ratings[i],
-              star: Math.floor(ratings[i]),
-            })
-          }
-        }else {
-          console.error("piče")
-        }
-    })
-    .catch(error => {
-          console.error(error);
-        })
-      },
-
     components: { Searchbar, Backbtn, Card, Location, Footer },
 
-
+    computed: {
+    cards() {
+      return this.$store.state.cards
+    }
+  },
+  mounted() {
+    this.$store.dispatch('fetchCards')
+  },
   methods: {
     scroll(amount) {
       this.$refs.container.scrollBy({
@@ -285,14 +262,16 @@
         },
         reload() {
           window.location.reload();
-}
+        },
+        selectCard(card) {
+      this.$store.commit('setSelectedCard', card)
+      this.$router.push({ name: 'RestaurantPage', params: { title: card.title } })
+      
+    }
   },
 
     data(){
       return {
-        cards: [ 
-
-        ],
         showLocation: false
       }
     }
