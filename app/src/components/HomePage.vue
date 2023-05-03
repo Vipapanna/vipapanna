@@ -4,7 +4,7 @@
     <section class="bg-[#4C4556] flex h-20 justify-between">  
 
       <div class="h-100 w-100">
-        <img @click="goToHomePage" src="src\assets\images\vipapanna1.svg" alt="" class="mt-3 ml-3">
+        <img @click="reload" src="src/assets/images/vipapanna1.svg" alt="" class="mt-3 ml-3">
       </div>
 
       <Searchbar/>
@@ -206,7 +206,6 @@
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
   import Location from "./location.vue";
-  import VueAwesomeSwiper from 'vue-awesome-swiper';
   import axios from 'axios'
   
   export default {
@@ -239,7 +238,7 @@
         })
       },
 
-    components: { Searchbar, Backbtn, Card, VueAwesomeSwiper, Location, Footer },
+    components: { Searchbar, Backbtn, Card, Location, Footer },
 
 
   methods: {
@@ -284,7 +283,7 @@
           resetpasswordpage.classList.add("hidden");
           resetpasswordpage.classList.remove("flex");
         },
-        goToHomePage() {
+        reload() {
           window.location.reload();
 }
   },
