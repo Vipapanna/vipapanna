@@ -1,12 +1,8 @@
 <template>
   <section
   id="mainpage">
-    <section class="bg-[#4C4556] flex h-20 justify-between">  
-
-      <div class="h-100 w-100 ">
-        <img @click="reload" src="/src/assets/images/vipapanna1.svg" alt="" class="mt-3 ml-3 cursor-pointer" >
-      </div>
-
+    <section class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full ">  
+      
       <Searchbar/>
 
       <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:   ">
@@ -30,7 +26,7 @@
       id="overlay"
     >
       <div
-        class="bg-white rounded-2xl flex-col w-24 h-[28rem] justify-center items-center absolute"
+        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center absolute"
         id="loginp"
       >
         <Backbtn 
@@ -82,7 +78,6 @@
   
       <div
         class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center hidden pb-10"
-        
         id="regpage"
       >
         <Backbtn 
@@ -190,17 +185,15 @@
         <location />
       </div>
     </div>
-
-
     
-    <div class="container mx-auto my-8">
-    <section class="grid grid-cols-4 gap-0 max-h-64 overflow-y-auto" ref="cardSection">
-      <Card v-for="(card, index) in visibleCards" :key="index" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star" @click="selectCard(card)"/>
+    <router-link to="/RestaurantPage"> restaurant </router-link>
+    
+    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1 ">
+
+      
+      <Card class="m-auto"  v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
     </section>
-    <div class="flex justify-center mt-4" v-if="visibleCards.length < cards.length">
-      <button class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="showMore">Show More</button>
-    </div>
-  </div>
+
   
     <Footer/>
 
@@ -217,21 +210,18 @@
   import Backbtn from "./Backbtn.vue";
   import Card from "./Card.vue";
   import Location from "./location.vue";
-  import { mapGetters } from 'vuex';
   
   export default {
 
-    components: { Searchbar, Backbtn, Card, Location, Footer,},
+    components: { Searchbar, Backbtn, Card, Location, Footer },
 
     computed: {
-      ...mapGetters(['getSelectedCard', 'getCards']),
     cards() {
-      return this.getCards.slice(0, this.Cardsper);
-    },
+      return this.$store.state.cards
+    }
   },
   mounted() {
-    this.$store.dispatch('fetchCards');
-    this.showMore();
+    this.$store.dispatch('fetchCards')
   },
   methods: {
     scroll(amount) {
@@ -279,27 +269,15 @@
           window.location.reload();
         },
         selectCard(card) {
-          this.$store.commit('setSelectedCard', card)
-          this.$router.push({ name: 'RestaurantPage', params: { title: card.title } })
-        },
-        showMore() {
-      const startIndex = this.visibleCards.length;
-      const endIndex = startIndex + this.cardsPerPage;
-      this.visibleCards = [...this.visibleCards, ...this.cards.slice(startIndex, endIndex)];
-      this.$nextTick(() => {
-      const cardSection = this.$refs.cardSection;
-      if (cardSection.scrollHeight > cardSection.clientHeight) {
-      cardSection.style.maxHeight = `${cardSection.scrollHeight}px`;
-        }
-      })
-  }
-},
+      this.$store.commit('setSelectedCard', card)
+      this.$router.push({ name: 'RestaurantPage', params: { title: card.title } })
+      
+    }
+  },
 
     data(){
       return {
-        showLocation: false,
-        visibleCards: [],
-        cardsPerPage: 50,
+        showLocation: false
       }
     }
   }
