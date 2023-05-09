@@ -16,6 +16,13 @@ class Restaurant extends Model
      */
     public $table = 'vipapanna_restaurants_restaurants';
 
+    public $fillable = [
+        'restaurant_name',
+        'review',
+        'address',
+        'restaurant_image_link'
+    ];
+
     /**
      * @var array rules for validation
      */

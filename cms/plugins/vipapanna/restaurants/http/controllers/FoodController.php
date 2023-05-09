@@ -19,14 +19,4 @@ class FoodController extends Controller{
         return FoodResource::collection($foods);
     }
 
-    public function createRequest($type, $uri) {
-        $client = new Client();
-        $res = $client->request($type, $uri);
-
-        return $res;
-    }
-
-    public function test() {
-        $this->createRequest("POST", "https://consumer-api.wolt.com/v1/pages/restaurants?lat=48.14427439713017&lon=17.1127243958451");
-    }
 }
