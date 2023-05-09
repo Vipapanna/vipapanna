@@ -21,6 +21,14 @@ class Food extends Model
      */
     public $rules = [];
 
+    public $fillable = [
+        'food_name',
+        'description',
+        'price_wolt',
+        'link_wolt',
+        'food_image_link',
+    ];
+
     public $belongsTo = [
         'restaurant' => [
             Restaurant::class,
