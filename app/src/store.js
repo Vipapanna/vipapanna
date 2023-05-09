@@ -23,20 +23,36 @@ const store = createStore({
   },
   actions: {
     fetchCards(context) {
-      axios
-        .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
-        .then(response => {
-          const cards = response.data.data.map(item => ({
-            title: item.restaurant_name,
-            rating: item.review,
-            star: Math.floor(item.review)
-          }))
-          context.commit('setCards', cards)
-        })
-        .catch(error => {
-          console.error(error)
-        })
-    },
+      axios.all([
+        axios.get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants'),
+        axios.get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${restaurantId}'),
+      ])
+
+      .then(axios.spread((cardResponse, menuResponse) => {
+        console.log(cardResponse);
+        console.log(menuResponse);
+        
+        const Cards = cardResponse.data.data.map(item => ({
+          id: item.id,
+          title: item.restaurant_name,
+          rating: item.review,
+          image: item.image,
+          star: Math.floor(item.review),
+        }));
+        
+        const menu = menuResponse.data.data.map(item => ({
+          title: item.name,
+        }));
+           
+      const cards = Cards.concat(menu);
+      
+      context.commit('setCards', cards);
+    }))
+    .catch(error => {
+      console.error(error);
+    });
+  },
+    
     retrieveSelectedCard(context) {
       context.commit('retrieveSelectedCard');
     },
@@ -44,6 +60,9 @@ const store = createStore({
   getters: {
     getSelectedCard: state => {
       return state.selectedCard;
+    },
+    getCards(state) {
+      return state.cards;
     },
   },
 });
