@@ -80,10 +80,7 @@
     </div>
   </section>
 
-
-  <h1></h1>
-
-
+  
     <Footer/>
 
     
@@ -112,7 +109,10 @@ export default{
       this.$store.commit('setSelectedCard', card)
       localStorage.setItem('selectedCardData', JSON.stringify(card))
     }
-  }
+  },
+  mounted() {
+    window.scroll(0, 0);
+  },
 }
 </script>
 <style scoped>
