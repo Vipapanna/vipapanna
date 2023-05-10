@@ -190,7 +190,7 @@
     <router-link to="/RestaurantPage"> restaurant </router-link>
     
     <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1" >
-       <Card class="m-auto" @click="selectCard" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+       <Card class="m-auto cursor-pointer" @click="selectCard" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
     </section>
 
   
