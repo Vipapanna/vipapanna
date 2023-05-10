@@ -140,52 +140,53 @@
         </button>
       </div>
     -->
-    </section>
-
+  </section>
+  
   <section class="w-full overflow-auto">
     <div class="flex whitespace-nowrap overflow-auto scrollbar-hide" ref="container">
       <img
       src="/src/assets/images/banner1.jpeg"
-        class="lg:h-96  h-56 self-center rounded-lg m-4"
-        alt=""
+      class="lg:h-96  h-56 self-center rounded-lg m-4"
+      alt=""
       />
       <img
-        src="/src/assets/images/banner2.jpeg"
-        class="lg:h-96  h-56 self-center rounded-lg m-4"
-        alt=""
-        />
-        <img
-        src="/src/assets/images/banner3.jpeg"
-        class="lg:h-96  h-56 self-center rounded-lg m-4"
-        alt=""
-        />
-        <img
-        src="/src/assets/images/banner4.jpeg"
-        class="lg:h-96  h-56 self-center rounded-lg m-4"
-        alt=""
-        />
-        <img
-      src="/src/assets/images/banner1.jpeg"
-        class="lg:h-96  h-56 self-center rounded-lg m-4"
-        alt=""
+      src="/src/assets/images/banner2.jpeg"
+      class="lg:h-96  h-56 self-center rounded-lg m-4"
+      alt=""
+      />
+      <img
+      src="/src/assets/images/banner3.jpeg"
+      class="lg:h-96  h-56 self-center rounded-lg m-4"
+      alt=""
+      />
+      <img
+      src="/src/assets/images/banner4.jpeg"
+      class="lg:h-96  h-56 self-center rounded-lg m-4"
+      alt=""
       />
       <img
       src="/src/assets/images/banner1.jpeg"
-        class="lg:h-96  h-56 self-center rounded-lg m-4"
-        alt=""
+      class="lg:h-96  h-56 self-center rounded-lg m-4"
+      alt=""
+      />
+      <img
+      src="/src/assets/images/banner1.jpeg"
+      class="lg:h-96  h-56 self-center rounded-lg m-4"
+      alt=""
       />
     </div>
     <button class="opacity-40 lg:absolute hidden lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(-600)"> « </button>
     <button class="opacity-40 lg:absolute hidden lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
-    </section>
-   
-    <div class=" flex items-center justify-center flex-col">
-      <div @click="showLocation = !showLocation" class=" cursor-pointer">Location</div>
-      <div v-if="showLocation">
-        <location />
-      </div>
+  </section>
+  
+  <div class=" flex items-center justify-center flex-col">
+    <div @click="showLocation = !showLocation" class=" cursor-pointer">Location</div>
+    <div v-if="showLocation">
+      <location />
     </div>
-    
+  </div>
+  
+    <router-link to="/RestaurantPage"> restaurant </router-link>
     <router-link to="/RestaurantPage"> restaurant </router-link>
     
     <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1 ">
