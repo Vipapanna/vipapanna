@@ -24,19 +24,21 @@ const store = createStore({
   actions: {
     fetchCards(context) {
       axios
-        .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
-        .then(response => {
-          const cards = response.data.data.map(item => ({
-            title: item.restaurant_name,
-            rating: item.review,
-            star: Math.floor(item.review)
-          }))
-          context.commit('setCards', cards)
-        })
-        .catch(error => {
-          console.error(error)
-        })
-    },
+      .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
+      .then(response => {
+        console.log(response)
+        const cards = response.data.data.map(item => ({
+          title: item.restaurant_name,
+          rating: item.review,
+          star: Math.floor(item.review),
+          image: item.restaurant_image_link,
+        }))
+        context.commit('setCards', cards)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  },
     retrieveSelectedCard(context) {
       context.commit('retrieveSelectedCard');
     },
