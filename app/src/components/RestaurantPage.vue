@@ -18,7 +18,7 @@
 
     </section>
   <section style="font-family: 'Cabin', sans-serif;" >
-    <div class=" text-white bg-[url('/src/assets/images/reštauracia.png')]" >
+    <div class=" text-white bg-[url('/src/assets/images/restauracia.png')]" >
       
       
       <div  class=" flex flex-col pl-10 pt-14 pb-20 " >
