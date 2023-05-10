@@ -188,10 +188,8 @@
     
     <router-link to="/RestaurantPage"> restaurant </router-link>
     
-    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1 ">
-
-      
-      <Card class="m-auto"  v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1" >
+       <Card class="m-auto" @click="selectCard" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
     </section>
 
   
@@ -286,6 +284,3 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 </style>
-  
-
-//test
