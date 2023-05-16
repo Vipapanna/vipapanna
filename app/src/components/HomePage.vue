@@ -193,25 +193,11 @@
       >
         »
       </button>
-    </section>
-
-    <section class="my-14">
-      <div class="flex items-center justify-center flex-col mb-8">
-        <div class="flex flex-row justify-center items-center">
-          <p>lokacias</p>
-          <div @click="showLocation = !showLocation" class="cursor-pointer">
-            <img class="h-12" src="/src/assets/images/map-marker.svg" alt="" />
-          </div>
-        </div>
-        <div v-if="showLocation">
-          <location />
-        </div>
-      </div>
 
       <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1">
         <Card
-          class="m-auto cursor-pointer"
-          @click="selectCard"
+          class="m-auto"
+          @click="selectCard(card)"
           v-for="card in cards"
           :key="card"
           :title="card.title"
@@ -220,9 +206,40 @@
           :star="card.star"
         />
       </section>
-    </section>
 
-    <Footer />
+      <section class="my-14">
+        <div class="flex items-center justify-center flex-col mb-8">
+          <div class="flex flex-row justify-center items-center">
+            <p>lokacias</p>
+            <div @click="showLocation = !showLocation" class="cursor-pointer">
+              <img
+                class="h-12"
+                src="/src/assets/images/map-marker.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div v-if="showLocation">
+            <location />
+          </div>
+        </div>
+
+        <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1">
+          <Card
+            class="m-auto cursor-pointer"
+            @click="selectCard"
+            v-for="card in cards"
+            :key="card"
+            :title="card.title"
+            :image="card.image"
+            :rating="card.rating"
+            :star="card.star"
+          />
+        </section>
+      </section>
+
+      <Footer />
+    </section>
   </section>
 </template>
 
@@ -240,6 +257,9 @@ export default {
     cards() {
       return this.$store.state.cards;
     },
+    selectedCard() {
+      return this.$store.state.selectedCard;
+    },
   },
   mounted() {
     this.$store.dispatch("fetchCards");
@@ -250,41 +270,6 @@ export default {
         left: amount,
         behavior: "smooth",
       });
-    },
-    popup() {
-      overlay.classList.remove("hidden");
-      overlay.classList.add("flex");
-      loginp.classList.remove("hidden");
-      loginp.classList.add("flex");
-    },
-    register() {
-      loginp.classList.add("hidden");
-      regpage.classList.remove("hidden");
-      regpage.classList.add("flex");
-    },
-    forgotpasword() {
-      loginp.classList.add("hidden");
-      loginp.classList.remove("flex");
-      resetpasswordpage.classList.remove("hidden");
-      resetpasswordpage.classList.add("flex");
-    },
-    close() {
-      overlay.classList.remove("flex");
-      overlay.classList.add("hidden");
-      loginp.classList.add("hidden");
-      loginp.classList.remove("flex");
-    },
-    regclose() {
-      overlay.classList.remove("flex");
-      overlay.classList.add("hidden");
-      regpage.classList.add("hidden");
-      regpage.classList.remove("flex");
-    },
-    forgotclose() {
-      overlay.classList.remove("flex");
-      overlay.classList.add("hidden");
-      resetpasswordpage.classList.add("hidden");
-      resetpasswordpage.classList.remove("flex");
     },
     reload() {
       window.location.reload();

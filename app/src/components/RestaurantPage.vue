@@ -41,6 +41,7 @@
 import Searchbar from "./Searchbar.vue";
 import Footer from "./Footer.vue";
 import Food_Card from "./food-card.vue";
+import axios from "axios";
 
 export default {
   components: { Searchbar, Footer, Food_Card },
@@ -52,12 +53,19 @@ export default {
   },
   mounted() {
     window.scroll(0, 0);
-  },
-  methods: {
-    selectCard(card) {
-      this.$store.commit("setSelectedCard", card);
-      localStorage.setItem("selectedCardData", JSON.stringify(card));
-    },
+
+    if (this.selectedCard && this.selectedCard.id) {
+      axios
+        .get(
+          `https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   },
 };
 </script>
