@@ -22,7 +22,7 @@
     </div>
 
     <div
-      class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-4 items-center justify-items-center lg:mx-20 mt-20"
     >
       <Food_Card />
       <Food_Card />
