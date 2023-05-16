@@ -33,6 +33,7 @@ const store = createStore({
           star: Math.floor(item.review),
           image: item.restaurant_image_link,
           id: item.id,
+          address: item.address
         }))
         context.commit('setCards', cards)
       })

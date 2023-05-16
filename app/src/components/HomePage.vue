@@ -141,11 +141,12 @@
   -->
 
     <section class="w-full overflow-auto">
+      <section>
       <div
-        class="flex whitespace-nowrap overflow-auto scrollbar-hide"
-        ref="container"
+      class="flex whitespace-nowrap overflow-auto scrollbar-hide"
+      ref="container"
       >
-        <img
+      <img
           src="/src/assets/images/banner1.jpeg"
           class="lg:h-96 h-56 self-center rounded-lg m-4"
           alt=""
@@ -161,7 +162,12 @@
           alt=""
         />
         <img
-          src="/src/assets/images/banner4.jpeg"
+        src="/src/assets/images/banner4.jpeg"
+          class="lg:h-96 h-56 self-center rounded-lg m-4"
+          alt=""
+        />
+        <img
+        src="/src/assets/images/banner1.jpeg"
           class="lg:h-96 h-56 self-center rounded-lg m-4"
           alt=""
         />
@@ -169,56 +175,41 @@
           src="/src/assets/images/banner1.jpeg"
           class="lg:h-96 h-56 self-center rounded-lg m-4"
           alt=""
-        />
-        <img
-          src="/src/assets/images/banner1.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-      </div>
+          />
+        </div>
 
+        <button
+          class="opacity-40 lg:absolute  lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+          @click="scroll(-600)"
+        >
+          «
+        </button>
+        <button
+          class="opacity-40 lg:absolute  lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+          @click="scroll(600)"
+        >
+          »
+        </button>
+      </section>
 
-    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1" >
-       <Card class="m-auto" @click="selectCard(card)" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
-      <button
-        class="opacity-40 lg:absolute hidden lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
-        @click="scroll(-600)"
-      >
-        «
-      </button>
-      <button
-        class="opacity-40 lg:absolute hidden lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
-        @click="scroll(600)"
-      >
-        »
-      </button>
-    </section>
-
-    <section class="my-14">
-      <div class="flex items-center justify-center flex-col mb-8">
-        <div class="flex flex-row justify-center items-center">
-          <p>lokacias</p>
-          <div @click="showLocation = !showLocation" class="cursor-pointer">
-            <img class="h-12" src="/src/assets/images/map-marker.svg" alt="" />
+      <section class="my-14">
+        <div class="flex items-center justify-center flex-col mb-8">
+          <div class="flex flex-row justify-center items-center">
+            <p>lokacias</p>
+            <div @click="showLocation = !showLocation" class="cursor-pointer">
+              <img class="h-12" src="/src/assets/images/map-marker.svg" alt="" />
+            </div>
+          </div>
+          <div v-if="showLocation">
+            <location />
           </div>
         </div>
-        <div v-if="showLocation">
-          <location />
-        </div>
-      </div>
+      
+    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1 cursor-pointer" >
+       <Card class="m-auto" @click="selectCard(card)" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+    </section>
 
-      <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1">
-        <Card
-          class="m-auto cursor-pointer"
-          @click="selectCard"
-          v-for="card in cards"
-          :key="card"
-          :title="card.title"
-          :image="card.image"
-          :rating="card.rating"
-          :star="card.star"
-        />
-      </section>
+
     </section>
 
     <Footer />

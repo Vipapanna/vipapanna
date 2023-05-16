@@ -6,8 +6,8 @@
       <h3 class="text-3xl mx-auto text-gray-400">{{ FoodName }}</h3>
       <img
         class="ml-auto h-[7rem] lg:h-[9rem] m-2"
-        src="FoodImageLink"
-        alt=""
+        :src="FoodImageLink"
+        alt="placeholder.png"
       />
     </div>
   </div>
@@ -23,7 +23,6 @@ export default {
     FoodImageLink: {
       required: true,
       type: String,
-      dufault:"kokot",
     },
   }
 }
