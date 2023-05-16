@@ -4,14 +4,13 @@
   >
     <Searchbar />
 
-    <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:">
+    <router-link to="/"  class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:">
       <img
-        @click="goToHomePage"
         src="/src/assets/images/vipapanna1.svg"
         alt=""
         class="mr-6"
       />
-    </div>
+    </router-link>
   </section>
   <section style="font-family: 'Cabin', sans-serif">
     <div class="text-white bg-[url('/src/assets/images/restauracia.png')]">
@@ -24,11 +23,9 @@
     <div
       class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
     >
-      <Food_Card />
-      <Food_Card />
-      <Food_Card />
-      <Food_Card />
-      <Food_Card />
+
+    <FoodCard class="m-auto" v-for="food in menu" :key="food.id" :FoodName="food.food_name" :FoodImageLink="food.food_image_link" />
+
     </div>
   </section>
 
@@ -41,14 +38,14 @@
 import Searchbar from "./Searchbar.vue";
 import Footer from "./Footer.vue";
 import axios from 'axios';
-import Food_Card from "./food-card.vue";
+import FoodCard from "./FoodCard.vue";
 
 export default {
-  components: { Searchbar, Footer, Food_Card },
+  components: { Searchbar, Footer, FoodCard },
 
     computed: {
       selectedCard() {
-      return this.$store.state.selectedCard
+        return this.$store.state.selectedCard;
     }
   },
   mounted() {
@@ -59,12 +56,23 @@ export default {
       .get(`https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`)
         .then(response => {
           console.log(response.data);
+          const menu = response.data.data.map(item => ({
+          food_name: item.food_name,
+          food_image_link: item.food_image_link,
+          }));
+          this.menu = menu;
+          console.log(JSON.stringify(this.menu));
         })
         .catch(error => {
-          console.error(error);
-        });
-    }
+        console.error(error);
+      });
   }
+},
+  data() {
+    return {
+      menu: []
+    };
+  },
 };
 </script>
 <style scoped>
