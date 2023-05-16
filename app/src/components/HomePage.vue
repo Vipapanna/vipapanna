@@ -1,17 +1,21 @@
 <template>
-  <section
-  id="mainpage">
-    <section class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full ">  
-      
-      <Searchbar/>
+  <section id="mainpage">
+    <section
+      class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
+    >
+      <Searchbar />
 
-      <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:   ">
-        <img @click="goToHomePage" src="/src/assets/images/vipapanna1.svg" alt="" class=" mr-6">
+      <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:">
+        <img
+          @click="goToHomePage"
+          src="/src/assets/images/vipapanna1.svg"
+          alt=""
+          class="mr-6"
+        />
       </div>
+    </section>
 
-
-
-      <!--
+    <!--
       <button
         class="w-20 h-11 rounded-2xl bg-white bg-opacity-20 drop-shadow-md text-white font-sans self-center mr-4 hover:opacity-90 cursor-pointer lg:w-24 lg:h-12"
         @click="popup"
@@ -134,93 +138,111 @@
         />
   
         <button
-          class="rounded-xl bg-gray-400 bg-opacity-20 w-32 h-10 hover:opacity-80 mt-10"
+        class="rounded-xl bg-gray-400 bg-opacity-20 w-32 h-10 hover:opacity-80 mt-10"
         >
-          poslať
-        </button>
+        poslať
+      </button>
+    </div>
+  -->
+
+    <section class="w-full overflow-auto">
+      <div
+        class="flex whitespace-nowrap overflow-auto scrollbar-hide"
+        ref="container"
+      >
+        <img
+          src="/src/assets/images/banner1.jpeg"
+          class="lg:h-96 h-56 self-center rounded-lg m-4"
+          alt=""
+        />
+        <img
+          src="/src/assets/images/banner2.jpeg"
+          class="lg:h-96 h-56 self-center rounded-lg m-4"
+          alt=""
+        />
+        <img
+          src="/src/assets/images/banner3.jpeg"
+          class="lg:h-96 h-56 self-center rounded-lg m-4"
+          alt=""
+        />
+        <img
+          src="/src/assets/images/banner4.jpeg"
+          class="lg:h-96 h-56 self-center rounded-lg m-4"
+          alt=""
+        />
+        <img
+          src="/src/assets/images/banner1.jpeg"
+          class="lg:h-96 h-56 self-center rounded-lg m-4"
+          alt=""
+        />
+        <img
+          src="/src/assets/images/banner1.jpeg"
+          class="lg:h-96 h-56 self-center rounded-lg m-4"
+          alt=""
+        />
       </div>
-    -->
-  </section>
-  
-  <section class="w-full overflow-auto">
-    <div class="flex whitespace-nowrap overflow-auto scrollbar-hide" ref="container">
-      <img
-      src="/src/assets/images/banner1.jpeg"
-      class="lg:h-96  h-56 self-center rounded-lg m-4"
-      alt=""
-      />
-      <img
-      src="/src/assets/images/banner2.jpeg"
-      class="lg:h-96  h-56 self-center rounded-lg m-4"
-      alt=""
-      />
-      <img
-      src="/src/assets/images/banner3.jpeg"
-      class="lg:h-96  h-56 self-center rounded-lg m-4"
-      alt=""
-      />
-      <img
-      src="/src/assets/images/banner4.jpeg"
-      class="lg:h-96  h-56 self-center rounded-lg m-4"
-      alt=""
-      />
-      <img
-      src="/src/assets/images/banner1.jpeg"
-      class="lg:h-96  h-56 self-center rounded-lg m-4"
-      alt=""
-      />
-      <img
-      src="/src/assets/images/banner1.jpeg"
-      class="lg:h-96  h-56 self-center rounded-lg m-4"
-      alt=""
-      />
-    </div>
-    <button class="opacity-40 lg:absolute hidden lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(-600)"> « </button>
-    <button class="opacity-40 lg:absolute hidden lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 " @click="scroll(600)"> » </button>
-  </section>
-  
-  <div class=" flex items-center justify-center flex-col">
-    <div @click="showLocation = !showLocation" class=" cursor-pointer">Location</div>
-    <div v-if="showLocation">
-      <location />
-    </div>
-  </div>
-  
-    <router-link to="/RestaurantPage"> restaurant </router-link>
-    <router-link to="/RestaurantPage"> restaurant </router-link>
-    
-    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1" >
-       <Card class="m-auto cursor-pointer" @click="selectCard" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+      <button
+        class="opacity-40 lg:absolute hidden lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+        @click="scroll(-600)"
+      >
+        «
+      </button>
+      <button
+        class="opacity-40 lg:absolute hidden lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+        @click="scroll(600)"
+      >
+        »
+      </button>
     </section>
 
-  
-    <Footer/>
+    <section class="my-14">
+      <div class="flex items-center justify-center flex-col mb-8">
+        <div class="flex flex-row justify-center items-center">
+          <p>lokacias</p>
+          <div @click="showLocation = !showLocation" class="cursor-pointer">
+            <img class="h-12" src="/src/assets/images/map-marker.svg" alt="" />
+          </div>
+        </div>
+        <div v-if="showLocation">
+          <location />
+        </div>
+      </div>
 
-    
+      <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1">
+        <Card
+          class="m-auto cursor-pointer"
+          @click="selectCard"
+          v-for="card in cards"
+          :key="card"
+          :title="card.title"
+          :image="card.image"
+          :rating="card.rating"
+          :star="card.star"
+        />
+      </section>
+    </section>
+
+    <Footer />
   </section>
-  </template>
+</template>
 
-  
-  <script>
-  
-  
-  import Searchbar from "./Searchbar.vue";
-  import Footer from "./Footer.vue";
-  import Backbtn from "./Backbtn.vue";
-  import Card from "./Card.vue";
-  import Location from "./location.vue";
-  
-  export default {
+<script>
+import Searchbar from "./Searchbar.vue";
+import Footer from "./Footer.vue";
+import Backbtn from "./Backbtn.vue";
+import Card from "./Card.vue";
+import Location from "./location.vue";
 
-    components: { Searchbar, Backbtn, Card, Location, Footer },
+export default {
+  components: { Searchbar, Backbtn, Card, Location, Footer },
 
-    computed: {
+  computed: {
     cards() {
-      return this.$store.state.cards
-    }
+      return this.$store.state.cards;
+    },
   },
   mounted() {
-    this.$store.dispatch('fetchCards')
+    this.$store.dispatch("fetchCards");
   },
   methods: {
     scroll(amount) {
@@ -230,58 +252,60 @@
       });
     },
     popup() {
-          overlay.classList.remove("hidden");
-          overlay.classList.add("flex");
-          loginp.classList.remove("hidden");
-          loginp.classList.add("flex");
-        },
-        register() {
-          loginp.classList.add("hidden");
-          regpage.classList.remove("hidden");
-          regpage.classList.add("flex");
-        },
-        forgotpasword(){
-          loginp.classList.add("hidden");
-          loginp.classList.remove("flex");
-          resetpasswordpage.classList.remove("hidden");
-          resetpasswordpage.classList.add("flex");
-        },
-        close() {
-          overlay.classList.remove("flex");
-          overlay.classList.add("hidden");
-          loginp.classList.add("hidden");
-          loginp.classList.remove("flex");
-        },
-        regclose() {
-          overlay.classList.remove("flex");
-          overlay.classList.add("hidden");
-          regpage.classList.add("hidden");
-          regpage.classList.remove("flex");
-        },
-        forgotclose(){
-          overlay.classList.remove("flex");
-          overlay.classList.add("hidden");
-          resetpasswordpage.classList.add("hidden");
-          resetpasswordpage.classList.remove("flex");
-        },
-        reload() {
-          window.location.reload();
-        },
-        selectCard(card) {
-      this.$store.commit('setSelectedCard', card)
-      this.$router.push({ name: 'RestaurantPage', params: { title: card.title } })
-      
-    }
+      overlay.classList.remove("hidden");
+      overlay.classList.add("flex");
+      loginp.classList.remove("hidden");
+      loginp.classList.add("flex");
+    },
+    register() {
+      loginp.classList.add("hidden");
+      regpage.classList.remove("hidden");
+      regpage.classList.add("flex");
+    },
+    forgotpasword() {
+      loginp.classList.add("hidden");
+      loginp.classList.remove("flex");
+      resetpasswordpage.classList.remove("hidden");
+      resetpasswordpage.classList.add("flex");
+    },
+    close() {
+      overlay.classList.remove("flex");
+      overlay.classList.add("hidden");
+      loginp.classList.add("hidden");
+      loginp.classList.remove("flex");
+    },
+    regclose() {
+      overlay.classList.remove("flex");
+      overlay.classList.add("hidden");
+      regpage.classList.add("hidden");
+      regpage.classList.remove("flex");
+    },
+    forgotclose() {
+      overlay.classList.remove("flex");
+      overlay.classList.add("hidden");
+      resetpasswordpage.classList.add("hidden");
+      resetpasswordpage.classList.remove("flex");
+    },
+    reload() {
+      window.location.reload();
+    },
+    selectCard(card) {
+      this.$store.commit("setSelectedCard", card);
+      this.$router.push({
+        name: "RestaurantPage",
+        params: { title: card.title },
+      });
+    },
   },
 
-    data(){
-      return {
-        showLocation: false
-      }
-    }
-  }
-  </script>
+  data() {
+    return {
+      showLocation: false,
+    };
+  },
+};
+</script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
 </style>
