@@ -6,7 +6,7 @@
       <Searchbar/>
 
       <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:   ">
-        <img @click="goToHomePage" src="/src/assets/images/vipapanna1.svg" alt="" class=" mr-6">
+        <img @click="reload" src="/src/assets/images/vipapanna1.svg" alt="" class=" mr-6">
       </div>
 
 
@@ -185,11 +185,9 @@
         <location />
       </div>
     </div>
-    
-    <router-link to="/RestaurantPage"> restaurant </router-link>
-    
+
     <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1" >
-       <Card class="m-auto" @click="selectCard" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+       <Card class="m-auto" @click="selectCard(card)" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
     </section>
 
   
@@ -216,6 +214,9 @@
     computed: {
     cards() {
       return this.$store.state.cards
+    },
+    selectedCard() {
+      return this.$store.state.selectedCard
     }
   },
   mounted() {
@@ -228,48 +229,12 @@
         behavior: "smooth",
       });
     },
-    popup() {
-          overlay.classList.remove("hidden");
-          overlay.classList.add("flex");
-          loginp.classList.remove("hidden");
-          loginp.classList.add("flex");
-        },
-        register() {
-          loginp.classList.add("hidden");
-          regpage.classList.remove("hidden");
-          regpage.classList.add("flex");
-        },
-        forgotpasword(){
-          loginp.classList.add("hidden");
-          loginp.classList.remove("flex");
-          resetpasswordpage.classList.remove("hidden");
-          resetpasswordpage.classList.add("flex");
-        },
-        close() {
-          overlay.classList.remove("flex");
-          overlay.classList.add("hidden");
-          loginp.classList.add("hidden");
-          loginp.classList.remove("flex");
-        },
-        regclose() {
-          overlay.classList.remove("flex");
-          overlay.classList.add("hidden");
-          regpage.classList.add("hidden");
-          regpage.classList.remove("flex");
-        },
-        forgotclose(){
-          overlay.classList.remove("flex");
-          overlay.classList.add("hidden");
-          resetpasswordpage.classList.add("hidden");
-          resetpasswordpage.classList.remove("flex");
-        },
-        reload() {
-          window.location.reload();
+      reload() {
+        window.location.reload();
         },
         selectCard(card) {
       this.$store.commit('setSelectedCard', card)
-      this.$router.push({ name: 'RestaurantPage', params: { title: card.title } })
-      
+      this.$router.push({ name: 'RestaurantPage', params: { title: card.title } });
     }
   },
 

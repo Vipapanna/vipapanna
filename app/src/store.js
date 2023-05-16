@@ -4,7 +4,7 @@ import axios from 'axios'
 const store = createStore({
   state: {
     cards: [],
-    selectedCard: null,
+    selectedCard:null,
   },
   mutations: {
     setCards(state, cards) {
@@ -32,6 +32,7 @@ const store = createStore({
           rating: item.review,
           star: Math.floor(item.review),
           image: item.restaurant_image_link,
+          id: item.id,
         }))
         context.commit('setCards', cards)
       })

@@ -94,26 +94,32 @@
 <script>
 import Searchbar from "./Searchbar.vue";
 import Footer from "./Footer.vue";
+import axios from 'axios';
 
 export default{
     
     components: { Searchbar, Footer, },
 
     computed: {
-    selectedCard() {
+      selectedCard() {
       return this.$store.state.selectedCard
     }
   },
   mounted() {
-    window.scroll(0, 0);
-  },
-  methods: {
-    selectCard(card) {
-      this.$store.commit('setSelectedCard', card)
-      localStorage.setItem('selectedCardData', JSON.stringify(card))
+    window.scroll(0, 0)
+
+    if (this.selectedCard && this.selectedCard.id) {
+      axios
+      .get(`https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
-}
+};
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
