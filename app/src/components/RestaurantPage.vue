@@ -14,7 +14,7 @@
   </section>
   <section style="font-family: 'Cabin', sans-serif">
     <div class="text-white bg-[url('/src/assets/images/restauracia.png')]">
-      <router-link to="/"> "BAck" </router-link>
+      <router-link to="/"> "BAck ༼ つ ◕_◕ ༽つ" </router-link>
       <div class="flex flex-col pl-10 pt-14 pb-20">
         <h1 class="text-6xl">{{ selectedCard.title }}</h1>
         <h2 class="text-2xl">{{ selectedCard.rating }}</h2>
@@ -24,14 +24,21 @@
 
     <div
       class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
-    >
+      >
 
-    <FoodCard class="m-auto" v-for="food in menu" :key="food.id" :FoodName="food.food_name" :FoodImageLink="food.food_image_link" />
+    <FoodCard 
+    @click="openModal(food.food_name, food.food_image_link)"
+    class="m-auto cursor-pointer" 
+    v-for="food in menu" :key="food.id" 
+    :FoodName="food.food_name" :FoodImageLink="food.food_image_link"
+    />
+
+    <Dialog v-model:visible="visible" modal :header="modalName" :style="{ width: '50vw' }">
+        <img :src="modalImage" alt="">
+    </Dialog>
 
     </div>
   </section>
-
-  <h1></h1>
 
   <Footer />
 </template>
@@ -41,13 +48,22 @@ import Searchbar from "./Searchbar.vue";
 import Footer from "./Footer.vue";
 import axios from 'axios';
 import FoodCard from "./FoodCard.vue";
+import Dialog from 'primevue/dialog';
 
 export default {
-  components: { Searchbar, Footer, FoodCard },
+  components: { Searchbar, Footer, FoodCard, Dialog },
 
     computed: {
       selectedCard() {
         return this.$store.state.selectedCard;
+    }
+  },
+  methods:{
+    openModal(Name, Image){
+      this.modalName = Name
+      this.modalImage = Image
+      this.visible = true
+      console.log(this.modalName)
     }
   },
   mounted() {
@@ -72,7 +88,10 @@ export default {
 },
   data() {
     return {
-      menu: []
+      menu: [],
+      visible: false,
+      modalName: '',
+      modalImage: '',
     };
   },
 };

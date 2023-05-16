@@ -8,9 +8,9 @@
       </div>
   
       <div class=" flex flex-row  space-x-12 m-auto" >
-        <object data="./src/assets/images/fb-logo.svg" type="image/svg+xml"></object>
-        <object data="./src/assets/images/ig-logo.svg" type="image/svg+xml"></object>
-        <object data="./src/assets/images/tw-logo.svg" type="image/svg+xml"></object>
+        <img src="@/assets/images/fb-logo.svg">
+        <img src="@/assets/images/ig-logo.svg">
+        <img src="@/assets/images/tw-logo.svg">
       </div>
     </div>
 </template>

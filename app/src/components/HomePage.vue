@@ -3,10 +3,11 @@
     <section
       class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
     >
+
       <Searchbar />
 
       <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:   ">
-        <img @click="reload" src="/src/assets/images/vipapanna1.svg" alt="" class=" mr-6">
+        <img @click="reload" src="/src/assets/images/vipapanna1.svg" alt="" class=" mr-6 cursor-pointer">
       </div>
     </section>
 
@@ -146,36 +147,14 @@
       class="flex whitespace-nowrap overflow-auto scrollbar-hide"
       ref="container"
       >
-      <img
-          src="/src/assets/images/banner1.jpeg"
+
+      <img 
+          v-for="image in carousel" :key="image"
+          :src="image"
           class="lg:h-96 h-56 self-center rounded-lg m-4"
           alt=""
         />
-        <img
-          src="/src/assets/images/banner2.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-          src="/src/assets/images/banner3.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-        src="/src/assets/images/banner4.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-        src="/src/assets/images/banner1.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-          src="/src/assets/images/banner1.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-          />
+
         </div>
 
         <button
@@ -205,8 +184,11 @@
           </div>
         </div>
       
-    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1 cursor-pointer" >
-       <Card class="m-auto" @click="selectCard(card)" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
+    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1 " >
+       <Card class="m-auto cursor-pointer" 
+       @click="selectCard(card)" 
+       v-for="card in cards" :key="card" 
+       :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
     </section>
 
 
@@ -225,15 +207,12 @@ import Card from "./Card.vue";
 import Location from "./location.vue";
 
 export default {
-  components: { Searchbar, Backbtn, Card, Location, Footer },
+  components: { Searchbar, Backbtn, Card, Location, Footer, },
 
   computed: {
     cards() {
       return this.$store.state.cards
     },
-    selectedCard() {
-      return this.$store.state.selectedCard
-    }
   },
   mounted() {
     this.$store.dispatch("fetchCards");
@@ -245,18 +224,25 @@ export default {
         behavior: "smooth",
       });
     },
-      reload() {
-        window.location.reload();
-        },
-        selectCard(card) {
+    reload() {
+      window.location.reload();
+    },
+    selectCard(card) {
       this.$store.commit('setSelectedCard', card)
-      this.$router.push({ name: 'RestaurantPage', params: { title: card.title } });
+      this.$router.push({ name: 'RestaurantPage' });
     }
   },
 
   data() {
     return {
       showLocation: false,
+      carousel:[
+        '/src/assets/images/banner1.jpeg',
+        "/src/assets/images/banner2.jpeg",
+        "/src/assets/images/banner3.jpeg",
+        "/src/assets/images/banner4.jpeg",
+
+      ]
     };
   },
 };
