@@ -4,12 +4,11 @@
   >
     <Searchbar />
 
-    <router-link to="/"  class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:">
-      <img
-        src="/src/assets/images/vipapanna1.svg"
-        alt=""
-        class="mr-6"
-      />
+    <router-link
+      to="/"
+      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:"
+    >
+      <img src="/src/assets/images/vipapanna1.svg" alt="" class="mr-6" />
     </router-link>
   </section>
   <section style="font-family: 'Cabin', sans-serif">
@@ -46,17 +45,17 @@
 <script>
 import Searchbar from "./Searchbar.vue";
 import Footer from "./Footer.vue";
-import axios from 'axios';
+import axios from "axios";
 import FoodCard from "./FoodCard.vue";
 import Dialog from 'primevue/dialog';
 
 export default {
   components: { Searchbar, Footer, FoodCard, Dialog },
 
-    computed: {
-      selectedCard() {
-        return this.$store.state.selectedCard;
-    }
+  computed: {
+    selectedCard() {
+      return this.$store.state.selectedCard;
+    },
   },
   methods:{
     openModal(Name, Image){
@@ -67,31 +66,30 @@ export default {
     }
   },
   mounted() {
-    window.scroll(0, 0)
+    window.scroll(0, 0);
 
     if (this.selectedCard && this.selectedCard.id) {
       axios
-      .get(`https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`)
-        .then(response => {
+        .get(
+          `https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`
+        )
+        .then((response) => {
           console.log(response.data);
-          const menu = response.data.data.map(item => ({
-          food_name: item.food_name,
-          food_image_link: item.food_image_link,
+          const menu = response.data.data.map((item) => ({
+            food_name: item.food_name,
+            food_image_link: item.food_image_link,
           }));
           this.menu = menu;
           console.log(JSON.stringify(this.menu));
         })
-        .catch(error => {
-        console.error(error);
-      });
-  }
-},
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  },
   data() {
     return {
       menu: [],
-      visible: false,
-      modalName: '',
-      modalImage: '',
     };
   },
 };

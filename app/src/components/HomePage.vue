@@ -193,9 +193,7 @@
 
 
     </section>
-
-    <Footer />
-  </section>
+    </section>
   </section>
 </template>
 
@@ -211,7 +209,10 @@ export default {
 
   computed: {
     cards() {
-      return this.$store.state.cards
+      return this.$store.state.cards;
+    },
+    selectedCard() {
+      return this.$store.state.selectedCard;
     },
   },
   mounted() {
