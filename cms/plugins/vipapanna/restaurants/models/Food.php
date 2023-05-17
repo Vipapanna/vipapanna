@@ -27,6 +27,7 @@ class Food extends Model
         'price_wolt',
         'link_wolt',
         'food_image_link',
+        'link_bistro'
     ];
 
     public $belongsTo = [
