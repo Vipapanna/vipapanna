@@ -10,7 +10,7 @@
           @click="reload"
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="mr-6"
+          class="mr-6 cursor-pointer"
         />
       </div>
     </section>
@@ -147,50 +147,27 @@
 
     <section class="w-full overflow-auto">
       <section>
-      <div
-      class="flex whitespace-nowrap overflow-auto scrollbar-hide"
-      ref="container"
-      >
-      <img
-          src="/src/assets/images/banner1.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-          src="/src/assets/images/banner2.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-          src="/src/assets/images/banner3.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-        src="/src/assets/images/banner4.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-        src="/src/assets/images/banner1.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
-        />
-        <img
-          src="/src/assets/images/banner1.jpeg"
-          class="lg:h-96 h-56 self-center rounded-lg m-4"
-          alt=""
+        <div
+          class="flex whitespace-nowrap overflow-auto scrollbar-hide"
+          ref="container"
+        >
+          <img
+            v-for="image in carousel"
+            :key="image"
+            :src="image"
+            class="lg:h-96 h-56 self-center rounded-lg m-4"
+            alt=""
           />
         </div>
 
         <button
-          class="opacity-40 lg:absolute  lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+          class="opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
           @click="scroll(-600)"
         >
           «
         </button>
         <button
-          class="opacity-40 lg:absolute  lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+          class="opacity-40 lg:absolute lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
           @click="scroll(600)"
         >
           »
@@ -202,20 +179,31 @@
           <div class="flex flex-row justify-center items-center">
             <p>lokacias</p>
             <div @click="showLocation = !showLocation" class="cursor-pointer">
-              <img class="h-12" src="/src/assets/images/map-marker.svg" alt="" />
+              <img
+                class="h-12"
+                src="/src/assets/images/map-marker.svg"
+                alt=""
+              />
             </div>
           </div>
           <div v-if="showLocation">
             <location />
           </div>
         </div>
-      
-    <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1 cursor-pointer" >
-       <Card class="m-auto" @click="selectCard(card)" v-for="card in cards" :key="card" :title="card.title" :image="card.image" :rating="card.rating" :star="card.star"/>
-    </section>
 
-
-    </section>
+        <section class="grid lg:grid-cols-4 md:grid-cols-3 gap-8 lg:mx-1">
+          <Card
+            class="m-auto cursor-pointer"
+            @click="selectCard(card)"
+            v-for="card in cards"
+            :key="card"
+            :title="card.title"
+            :image="card.image"
+            :rating="card.rating"
+            :star="card.star"
+          />
+        </section>
+      </section>
     </section>
   </section>
 </template>
@@ -234,9 +222,6 @@ export default {
     cards() {
       return this.$store.state.cards;
     },
-    selectedCard() {
-      return this.$store.state.selectedCard;
-    },
   },
   mounted() {
     this.$store.dispatch("fetchCards");
@@ -253,16 +238,19 @@ export default {
     },
     selectCard(card) {
       this.$store.commit("setSelectedCard", card);
-      this.$router.push({
-        name: "RestaurantPage",
-        params: { title: card.title },
-      });
+      this.$router.push({ name: "RestaurantPage" });
     },
   },
 
   data() {
     return {
       showLocation: false,
+      carousel: [
+        "/src/assets/images/banner1.jpeg",
+        "/src/assets/images/banner2.jpeg",
+        "/src/assets/images/banner3.jpeg",
+        "/src/assets/images/banner4.jpeg",
+      ],
     };
   },
 };
