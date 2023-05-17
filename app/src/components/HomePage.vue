@@ -205,6 +205,8 @@
         </section>
       </section>
     </section>
+
+    <Footer />
   </section>
 </template>
 
