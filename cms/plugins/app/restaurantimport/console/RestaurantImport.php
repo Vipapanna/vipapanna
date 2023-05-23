@@ -29,6 +29,10 @@ class RestaurantImport extends Command
      */
     public function handle()
     {
+        $progressbar = $this->output->createProgressBar(64);
+        $progressbar->setFormat('very_verbose');
+        $progressbar->start();
+
         $response = Http::get('https://consumer-api.wolt.com/v1/pages/restaurants?lat=48.14427439713017&lon=17.1127243958451');
         $body = json_decode($response->body(), true);
 
@@ -52,21 +56,37 @@ class RestaurantImport extends Command
             $restaurantBody = json_decode($response->body(), true);
 
             try {
-                for ($j = 0; $j < 25; $j++) {
+                for ($j = 0; $j < 100; $j++) {
                     $foodItem = $restaurantBody['items'][$j];
+
+                    $foodSlug = str_slug($foodItem['name']);
+                    $foodId = $foodItem['id'];
+                    $woltUrl = "https://wolt.com/sk/svk/bratislava/restaurant/{$slug}/{$foodSlug}-{$foodId}";
+
+                    $bistroResponse = Http::get("https://rest.bistro.sk/search?location[ref]=street&location[searchableName]=Bratislava+-+Star%C3%A9+Mesto,+Pribinova&filter[shop]={$foodSlug}&page=1&consentUUID=0d6c35ee-2713-4998-b1eb-2d29cea3d897_15");
+                    $bistroBody = json_decode($bistroResponse->body(), true);
+
+                    $bistroLink = null;
+                    if ($bistroBody['shops']) {
+                        $bistroSlug = $bistroBody['shops']['groups'][0]['items'][0]['sefName'];
+                        $bistroLink = "https://www.bistro.sk/restauracia/{$bistroSlug}";
+                    }
 
                     $price = $foodItem['baseprice'];
                     $restaurant->foods()->create([
                         'food_name' => $foodItem['name'],
                         'description' => $foodItem['description'],
                         'price_wolt' => $price / 100,
+                        'link_wolt' => $woltUrl,
                         'food_image_link' => $foodItem['image'],
+                        'link_bistro' => $bistroLink
                     ]);
                 }
             } catch (\Exception $e) {
+                $progressbar->advance();
                 continue;
             }
-
+            $progressbar->advance();
         }
 
     }

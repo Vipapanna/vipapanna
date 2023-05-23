@@ -3,7 +3,9 @@
     <div
       class="flex flex-row border-gray-300 border-2 items-center lg:w-[50rem] rounded-xl"
     >
-      <h3 class="text-3xl mx-auto text-gray-500">{{ FoodName }}</h3>
+      <h3 class="lg:text-2xl mx-auto text-gray-500 break-normal">
+        {{ FoodName }}
+      </h3>
       <img
         class="ml-auto h-[7rem] lg:h-[9rem] m-2 rounded-2xl"
         :src="FoodImageLink || '/src/assets/images/big-mac.png'"
