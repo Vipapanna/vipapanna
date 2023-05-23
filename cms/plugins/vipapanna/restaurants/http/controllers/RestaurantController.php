@@ -16,10 +16,10 @@ class RestaurantController extends Controller{
         return RestaurantResource::collection(Restaurant::all());
     }
     public function restaurantSearch(){
-        $search_text = $_GET['query'];
+        $search_text = input('query');
         $restaurants = Restaurant::where('restaurant_name', 'like', '%'.$search_text.'%')->get();
 
-        return view('product.search', compact('restaurants'));
+        return $restaurants;
 
     }
 }

@@ -12,14 +12,17 @@
     <Searchbar />
   </section>
   <section style="font-family: 'Cabin', sans-serif">
-    <div :style="{ backgroundImage: `url(${selectedCard.image})` }" class="text-white bg-cover bg-center">
+    <div
+      :style="{ backgroundImage: `url(${selectedCard.image})` }"
+      class="text-white bg-cover bg-center"
+    >
       <router-link to="/">
         <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
       </router-link>
       <div class="flex flex-col pl-10 pt-14 pb-20">
         <h1 class="text-6xl">{{ selectedCard.title }}</h1>
         <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
-        <h2 class="text-2xl">{{ selectedCard.address }}</h2>
+        <h2 class="text-xl break-normal">{{ selectedCard.address }}</h2>
       </div>
     </div>
 
@@ -86,7 +89,7 @@ export default {
           const menu = response.data.data.map((item) => ({
             food_name: item.food_name,
             food_image_link: item.food_image_link,
-            food_info: item.description
+            food_info: item.description,
           }));
           this.menu = menu;
         })
