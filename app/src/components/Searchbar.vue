@@ -24,9 +24,6 @@ export default {
       });
       console.log('Search successful', res);
     },
-    log() {
-      console.log(this.search);
-    },
   },
   watch: {
     search: {
