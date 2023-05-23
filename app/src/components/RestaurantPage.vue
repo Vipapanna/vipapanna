@@ -67,7 +67,6 @@ export default {
       this.modalName = Name;
       this.modalImage = Image;
       this.visible = true;
-      console.log(this.modalName);
     },
   },
   mounted() {
@@ -79,14 +78,12 @@ export default {
           `https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`
         )
         .then((response) => {
-          console.log(response.data);
           const menu = response.data.data.map((item) => ({
             food_name: item.food_name,
             food_image_link: item.food_image_link,
             food_info: item.description
           }));
           this.menu = menu;
-          console.log(JSON.stringify(this.menu));
         })
         .catch((error) => {
           console.error(error);

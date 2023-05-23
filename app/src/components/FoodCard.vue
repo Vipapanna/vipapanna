@@ -11,6 +11,8 @@
         :src="FoodImageLink || '/src/assets/images/big-mac.png'"
         alt="placeholder.png"
       />
+      <p>
+      </p>
     </div>
   </div>
 </template>
