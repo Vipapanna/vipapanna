@@ -1,23 +1,17 @@
 <template>
-  <div class="items-center flex mb-8 w-[40rem]">
+  <div class="items-center flex mb-8 lg:w-[40rem] mx-2">
     <div
       class="flex flex-row border-gray-300 border-2 items-center lg:w-[50rem] rounded-xl"
     >
-      <h3 class="lg:text-2xl mx-auto ml-4 text-gray-500 break-normal">
+      <h3 class="lg:text-2xl mx-auto ml-4 text-gray-500 break-all">
         {{ FoodName }}
       </h3>
       <img
-<<<<<<< Updated upstream
-        class="ml-auto h-[7rem] lg:h-[9rem] m-2 rounded-2xl"
-        :src="FoodImageLink || '/src/assets/images/big-mac.png'"
-=======
         class="ml-auto h-[9rem] lg:h-[8rem] m-2 rounded-2xl"
         :src="FoodImageLink"
->>>>>>> Stashed changes
         alt="placeholder.png"
       />
-      <p>
-      </p>
+      <p></p>
     </div>
   </div>
 </template>
