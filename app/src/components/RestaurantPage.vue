@@ -12,7 +12,7 @@
     </router-link>
   </section>
   <section style="font-family: 'Cabin', sans-serif">
-    <div class="text-white bg-[url('/src/assets/images/restauracia.png')]">
+    <div :style="{ backgroundImage: `url(${selectedCard.image})` }" class="text-white bg-cover bg-center">
       <router-link to="/"> "BAck ༼ つ ◕_◕ ༽つ" </router-link>
       <div class="flex flex-col pl-10 pt-14 pb-20">
         <h1 class="text-6xl">{{ selectedCard.title }}</h1>
