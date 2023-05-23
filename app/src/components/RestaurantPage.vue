@@ -24,7 +24,7 @@
       <div class="flex flex-col pl-10 pt-14 pb-20">
         <h1 class="text-6xl">{{ selectedCard.title }}</h1>
         <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
-        <h2 class="text-2xl">{{ selectedCard.address }}</h2>
+        <h2 class="text-xl break-normal">{{ selectedCard.address }}</h2>
       </div>
     </div>
 
