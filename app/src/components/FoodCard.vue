@@ -8,9 +8,11 @@
       </h3>
       <img
         class="ml-auto h-[7rem] lg:h-[9rem] m-2 rounded-2xl"
-        :src="FoodImageLink"
+        :src="FoodImageLink || '/src/assets/images/big-mac.png'"
         alt="placeholder.png"
       />
+      <p>
+      </p>
     </div>
   </div>
 </template>

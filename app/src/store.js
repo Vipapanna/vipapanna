@@ -4,7 +4,8 @@ import axios from 'axios'
 const store = createStore({
   state: {
     cards: [],
-    selectedCard: JSON.parse(localStorage.getItem('selectedCard') || '{}')
+    selectedCard: JSON.parse(localStorage.getItem('selectedCard') || '{}'),
+    selectedLocation: []
   },
   mutations: {
     setCards(state, cards) {
@@ -14,7 +15,9 @@ const store = createStore({
       state.selectedCard = card;
       localStorage.setItem('selectedCard', JSON.stringify(card));
     },
-
+    setSelectedCity(state, city) {
+      state.selectedCity = city;
+    },
   },
   actions: {
     fetchCards(context) {
@@ -37,6 +40,9 @@ const store = createStore({
       })
   },
 
+  },
+  setSelectedCity(state, city) {
+    state.selectedCity = city;
   },
   getters: {
     getSelectedCard: state => {
