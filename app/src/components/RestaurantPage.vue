@@ -2,22 +2,31 @@
   <section
     class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
   >
-    <Searchbar />
+    <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0">
+      <img
+        @click="reload"
+        src="/src/assets/images/vipapanna1.svg"
+        alt=""
+        class="cursor-pointer"
+      />
+    </div>
 
-    <router-link
-      to="/"
-      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:"
-    >
-      <img src="/src/assets/images/vipapanna1.svg" alt="" class="mr-6" />
-    </router-link>
+    <Searchbar />
   </section>
   <section style="font-family: 'Cabin', sans-serif">
+<<<<<<< Updated upstream
     <div :style="{ backgroundImage: `url(${selectedCard.image})` }" class="text-white bg-cover bg-center">
       <router-link to="/"> "BAck ༼ つ ◕_◕ ༽つ" </router-link>
+=======
+    <div class="text-white bg-[url('/src/assets/images/restauracia.png')]">
+      <router-link to="/">
+        <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
+      </router-link>
+>>>>>>> Stashed changes
       <div class="flex flex-col pl-10 pt-14 pb-20">
         <h1 class="text-6xl">{{ selectedCard.title }}</h1>
-        <h2 class="text-2xl">{{ selectedCard.rating }}</h2>
-        <h2 class="text-2x1">{{ selectedCard.address }}</h2>
+        <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
+        <h2 class="text-2xl">{{ selectedCard.address }}</h2>
       </div>
     </div>
 
@@ -53,9 +62,11 @@ import Footer from "./Footer.vue";
 import axios from "axios";
 import FoodCard from "./FoodCard.vue";
 import Dialog from "primevue/dialog";
+import { isPromise } from "@vue/shared";
+import Backbtn from "./Backbtn.vue";
 
 export default {
-  components: { Searchbar, Footer, FoodCard, Dialog },
+  components: { Searchbar, Footer, FoodCard, Dialog, Backbtn },
 
   computed: {
     selectedCard() {

@@ -3,7 +3,7 @@
     <div
       class="flex flex-row border-gray-300 border-2 items-center lg:w-[50rem] rounded-xl"
     >
-      <h3 class="lg:text-2xl mx-auto text-gray-500 break-normal">
+      <h3 class="lg:text-2xl mx-auto ml-6 text-gray-500 break-normal">
         {{ FoodName }}
       </h3>
       <img
