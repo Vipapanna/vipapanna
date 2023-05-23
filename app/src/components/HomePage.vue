@@ -1,4 +1,5 @@
 <template>
+          <Loading v-if="isLoading" />
   <section id="mainpage">
     <section
       class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
@@ -216,9 +217,10 @@ import Footer from "./Footer.vue";
 import Backbtn from "./Backbtn.vue";
 import Card from "./Card.vue";
 import Location from "./location.vue";
+import Loading from "./LoadingOverlay.vue";
 
 export default {
-  components: { Searchbar, Backbtn, Card, Location, Footer },
+  components: { Searchbar, Backbtn, Card, Location, Footer, Loading },
 
   computed: {
     cards() {
@@ -226,8 +228,16 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("fetchCards");
-  },
+    this.$store.dispatch("fetchCards")
+    .then(() => {
+      this.isLoading = false;
+    })
+    .catch((error) => {
+        console.error("Error fetching cards:", error);
+        // Handle error and set isLoading to false
+        this.isLoading = false;
+  })
+},
   methods: {
     scroll(amount) {
       this.$refs.container.scrollBy({
@@ -247,6 +257,7 @@ export default {
   data() {
     return {
       showLocation: false,
+      isLoading: true,
       carousel: [
         "/src/assets/images/banner1.jpeg",
         "/src/assets/images/banner2.jpeg",
