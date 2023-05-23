@@ -7,13 +7,8 @@
         {{ FoodName }}
       </h3>
       <img
-<<<<<<< Updated upstream
         class="ml-auto h-[7rem] lg:h-[9rem] m-2 rounded-2xl"
         :src="FoodImageLink || '/src/assets/images/big-mac.png'"
-=======
-        class="ml-auto h-[9rem] lg:h-[8rem] m-2 rounded-2xl"
-        :src="FoodImageLink"
->>>>>>> Stashed changes
         alt="placeholder.png"
       />
       <p>
