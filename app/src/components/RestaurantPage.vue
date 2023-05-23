@@ -14,7 +14,7 @@
     <Searchbar />
   </section>
   <section style="font-family: 'Cabin', sans-serif">
-    <div class="text-white bg-[url('/src/assets/images/restauracia.png')]">
+    <div :style="{ backgroundImage: `url(${selectedCard.image})` }" class="text-white bg-cover bg-center">
       <router-link to="/">
         <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
       </router-link>
