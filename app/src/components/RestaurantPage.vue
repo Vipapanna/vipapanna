@@ -14,15 +14,10 @@
     <Searchbar />
   </section>
   <section style="font-family: 'Cabin', sans-serif">
-<<<<<<< Updated upstream
-    <div :style="{ backgroundImage: `url(${selectedCard.image})` }" class="text-white bg-cover bg-center">
-      <router-link to="/"> "BAck ༼ つ ◕_◕ ༽つ" </router-link>
-=======
     <div class="text-white bg-[url('/src/assets/images/restauracia.png')]">
       <router-link to="/">
         <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
       </router-link>
->>>>>>> Stashed changes
       <div class="flex flex-col pl-10 pt-14 pb-20">
         <h1 class="text-6xl">{{ selectedCard.title }}</h1>
         <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
