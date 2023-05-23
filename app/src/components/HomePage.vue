@@ -164,7 +164,7 @@
         </div>
 
         <button
-          class="opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+          class="opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 z-1"
           @click="scroll(-600)"
         >
           «
@@ -260,10 +260,10 @@ export default {
       showLocation: false,
       isLoading: true,
       carousel: [
-        "/src/assets/images/banner1.jpeg",
-        "/src/assets/images/banner2.jpeg",
-        "/src/assets/images/banner3.jpeg",
-        "/src/assets/images/banner4.jpeg",
+        new URL('/src/assets/images/banner1.jpeg', import.meta.url).href,
+        new URL('/src/assets/images/banner2.jpeg', import.meta.url).href,
+        new URL('/src/assets/images/banner3.jpeg', import.meta.url).href,
+        new URL('/src/assets/images/banner4.jpeg', import.meta.url).href,
       ],
     };
   },
