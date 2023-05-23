@@ -1,19 +1,21 @@
 <template>
-          <Loading v-if="isLoading" />
+    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black">
+      <div class="text-white">Loading...</div>
+    </div>
   <section id="mainpage">
     <section
       class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
     >
-      <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0">
+      <Searchbar />
+
+      <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:">
         <img
           @click="reload"
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="cursor-pointer"
+          class="mr-6 cursor-pointer"
         />
       </div>
-
-      <Searchbar />
     </section>
 
     <!--
@@ -217,10 +219,9 @@ import Footer from "./Footer.vue";
 import Backbtn from "./Backbtn.vue";
 import Card from "./Card.vue";
 import Location from "./location.vue";
-import Loading from "./LoadingOverlay.vue";
 
 export default {
-  components: { Searchbar, Backbtn, Card, Location, Footer, Loading },
+  components: { Searchbar, Backbtn, Card, Location, Footer },
 
   computed: {
     cards() {
@@ -230,14 +231,14 @@ export default {
   mounted() {
     this.$store.dispatch("fetchCards")
     .then(() => {
-      this.isLoading = false;
-    })
-    .catch((error) => {
-        console.error("Error fetching cards:", error);
-        // Handle error and set isLoading to false
+      setTimeout(() => {
         this.isLoading = false;
-  })
-},
+      }, 1000);})
+      .catch((error) => {
+        console.error("Error fetching cards:", error);
+      })
+      console.log(this.isLoading)
+  },
   methods: {
     scroll(amount) {
       this.$refs.container.scrollBy({
