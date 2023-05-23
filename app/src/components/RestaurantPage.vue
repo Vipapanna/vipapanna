@@ -2,15 +2,13 @@
   <section
     class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
   >
-    <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0">
+    <router-link to="/" class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0">
       <img
-        @click="reload"
         src="/src/assets/images/vipapanna1.svg"
         alt=""
         class="cursor-pointer"
       />
-    </div>
-
+    </router-link>
     <Searchbar />
   </section>
   <section style="font-family: 'Cabin', sans-serif">

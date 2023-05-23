@@ -1,19 +1,21 @@
 <template>
-          <Loading v-if="isLoading" />
+    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black">
+      <div class="text-white">Loading...</div>
+    </div>
   <section id="mainpage">
     <section
       class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
     >
-      <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0">
+      <Searchbar />
+
+      <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:">
         <img
           @click="reload"
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="cursor-pointer"
+          class="mr-6 cursor-pointer"
         />
       </div>
-
-      <Searchbar />
     </section>
 
     <!--
@@ -162,7 +164,7 @@
         </div>
 
         <button
-          class="opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+          class="opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 z-1"
           @click="scroll(-600)"
         >
           «
@@ -217,10 +219,9 @@ import Footer from "./Footer.vue";
 import Backbtn from "./Backbtn.vue";
 import Card from "./Card.vue";
 import Location from "./location.vue";
-import Loading from "./LoadingOverlay.vue";
 
 export default {
-  components: { Searchbar, Backbtn, Card, Location, Footer, Loading },
+  components: { Searchbar, Backbtn, Card, Location, Footer },
 
   computed: {
     cards() {
@@ -230,14 +231,13 @@ export default {
   mounted() {
     this.$store.dispatch("fetchCards")
     .then(() => {
-      this.isLoading = false;
-    })
-    .catch((error) => {
-        console.error("Error fetching cards:", error);
-        // Handle error and set isLoading to false
+      setTimeout(() => {
         this.isLoading = false;
-  })
-},
+      }, 1000);})
+      .catch((error) => {
+        console.error("Error fetching cards:", error);
+      })
+  },
   methods: {
     scroll(amount) {
       this.$refs.container.scrollBy({
@@ -259,10 +259,10 @@ export default {
       showLocation: false,
       isLoading: true,
       carousel: [
-        "/src/assets/images/banner1.jpeg",
-        "/src/assets/images/banner2.jpeg",
-        "/src/assets/images/banner3.jpeg",
-        "/src/assets/images/banner4.jpeg",
+        new URL('/src/assets/images/banner1.jpeg', import.meta.url).href,
+        new URL('/src/assets/images/banner2.jpeg', import.meta.url).href,
+        new URL('/src/assets/images/banner3.jpeg', import.meta.url).href,
+        new URL('/src/assets/images/banner4.jpeg', import.meta.url).href,
       ],
     };
   },
