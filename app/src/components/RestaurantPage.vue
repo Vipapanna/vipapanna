@@ -26,14 +26,15 @@
       >
 
     <FoodCard 
-    @click="openModal(food.food_name, food.food_image_link)"
+    @click="openModal(food.food_name, food.food_image_link, food.food_info)"
     class="m-auto cursor-pointer" 
     v-for="food in menu" :key="food.id" 
     :FoodName="food.food_name" :FoodImageLink="food.food_image_link"
     />
 
     <Dialog v-model:visible="visible" modal :header="modalName" :style="{ width: '50vw' }">
-        <img :src="modalImage" alt="">
+        <img :src="modalImage||'/src/assets/images/big-mac.png'" alt="">
+        <p>{{ modalInfo }}</p>
     </Dialog>
 
     </div>
@@ -58,11 +59,12 @@ export default {
     },
   },
   methods:{
-    openModal(Name, Image){
+    openModal(Name, Image, Info){
       this.modalName = Name
       this.modalImage = Image
+      this.modalInfo = Info
       this.visible = true
-      console.log(this.modalName)
+      console.log(this.modalInfo)
     }
   },
   mounted() {
@@ -78,6 +80,7 @@ export default {
           const menu = response.data.data.map((item) => ({
             food_name: item.food_name,
             food_image_link: item.food_image_link,
+            food_info: item.description
           }));
           this.menu = menu;
           console.log(JSON.stringify(this.menu));
@@ -90,6 +93,10 @@ export default {
   data() {
     return {
       menu: [],
+      visible: false,
+      modalName: '',
+      modalImage: '',
+      modalInfo: '',
     };
   },
 };
