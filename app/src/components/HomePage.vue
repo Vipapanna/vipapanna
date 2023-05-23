@@ -228,9 +228,16 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("fetchCards");
-    this.isLoading = false;
-  },
+    this.$store.dispatch("fetchCards")
+    .then(() => {
+      this.isLoading = false;
+    })
+    .catch((error) => {
+        console.error("Error fetching cards:", error);
+        // Handle error and set isLoading to false
+        this.isLoading = false;
+  })
+},
   methods: {
     scroll(amount) {
       this.$refs.container.scrollBy({
