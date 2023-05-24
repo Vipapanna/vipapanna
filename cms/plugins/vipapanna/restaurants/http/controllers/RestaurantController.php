@@ -12,8 +12,23 @@ class RestaurantController extends Controller{
         return RestaurantResource::make(Restaurant::findOrFail($id));
     }
 
-    public function restaurant(){
-        return RestaurantResource::collection(Restaurant::all());
+//    public function restaurant(){
+//        return RestaurantResource::collection(Restaurant::all());
+//    }
+    public function restaurant() {
+        $allRestaurants = collect(Restaurant::all());
+        $featuredRestaurants = collect();
+
+        for ($i = 5; $i<10; $i++) {
+            $featuredRestaurants->push($allRestaurants[$i]);
+        }
+
+        // TODO: pories mazanie zo vsetkych a nie z db!!!
+
+        return response()->json([
+            'featured' => $featuredRestaurants,
+            'all' => $allRestaurants
+        ]);
     }
     public function restaurantSearch(){
         $search_text = input('query');
