@@ -19,9 +19,7 @@ export default {
   },
   methods: {
     async performSearch() {
-      const res = await axios.get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/search', {
-        params: { search: this.search },
-      });
+      const res = await axios.get(`https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/search?query=${this.search}`);
       console.log('Search successful', res);
     },
     log() {
