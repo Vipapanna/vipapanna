@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black">
+    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-white">
       <div class="text-white">Loading...</div>
     </div>
   <section id="mainpage">
@@ -155,9 +155,10 @@
           ref="container"
         >
           <img
-            v-for="image in carousel"
-            :key="image"
-            :src="image"
+            v-for="featured in featured"
+            @click="selectCard(featured)"
+            :key="featured"
+            :src="featured.image"
             class="lg:h-96 h-56 self-center rounded-lg m-4"
             alt=""
           />
@@ -219,6 +220,7 @@ import Footer from "./Footer.vue";
 import Backbtn from "./Backbtn.vue";
 import Card from "./Card.vue";
 import Location from "./location.vue";
+import axios from "axios";
 
 export default {
   components: { Searchbar, Backbtn, Card, Location, Footer },
@@ -227,6 +229,9 @@ export default {
     cards() {
       return this.$store.state.cards;
     },
+    featured() {
+    return this.$store.state.featured;
+  },
   },
   mounted() {
     this.$store.dispatch("fetchCards")
@@ -258,12 +263,6 @@ export default {
     return {
       showLocation: false,
       isLoading: true,
-      carousel: [
-        new URL('/src/assets/images/banner1.jpeg', import.meta.url).href,
-        new URL('/src/assets/images/banner2.jpeg', import.meta.url).href,
-        new URL('/src/assets/images/banner3.jpeg', import.meta.url).href,
-        new URL('/src/assets/images/banner4.jpeg', import.meta.url).href,
-      ],
     };
   },
 };
