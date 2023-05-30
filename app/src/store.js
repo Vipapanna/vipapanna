@@ -21,7 +21,9 @@ const store = createStore({
   },
   actions: {
     fetchCards(context) {
-      axios
+      return new Promise((resolve, reject) => {
+
+        axios
         .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
         .then(response => {
           const cards = response.data.all.map(item => ({
@@ -40,15 +42,17 @@ const store = createStore({
             address: item.address,
             id: item.id,
           }));
-
+          
           context.commit('setCards', cards);
           context.commit('setFeatured', featured);
+          resolve(response)
         })
         .catch(error => {
           console.error(error);
         });
+      })
+      },
     },
-  },
   getters: {
     getSelectedCard: state => {
       return state.selectedCard;

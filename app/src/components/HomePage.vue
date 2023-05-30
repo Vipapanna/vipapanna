@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center ">
+    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black z-50">
       <div class="text-white">Loading...</div>
     </div>
   <section id="mainpage">
@@ -221,7 +221,6 @@ import Footer from "./Footer.vue";
 import Backbtn from "./Backbtn.vue";
 import Card from "./Card.vue";
 import Location from "./location.vue";
-import axios from "axios";
 
 export default {
   components: { Searchbar, Backbtn, Card, Location, Footer },
@@ -231,15 +230,14 @@ export default {
       return this.$store.state.cards;
     },
     featured() {
-    return this.$store.state.featured;
+      return this.$store.state.featured;
+    },
   },
-  },
-  mounted() {
-    this.$store.dispatch("fetchCards")
-    .then(() => {
-      setTimeout(() => {
+  async mounted() {
+    await this.$store.dispatch("fetchCards")
+      .then(() => {
         this.isLoading = false;
-      }, 1000);})
+      })
       .catch((error) => {
         console.error("Error fetching cards:", error);
       })
