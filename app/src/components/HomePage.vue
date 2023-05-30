@@ -1,21 +1,22 @@
 <template>
-    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-white">
-      <div class="text-white">Loading...</div>
-    </div>
-  <section id="mainpage">
+  <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center">
+    <div class="text-white">Loading...</div>
+  </div>
+  <section id="mainpage" style="font-family: 'Cabin'" class="">
     <section
       class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
     >
-      <Searchbar />
-
-      <div class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:">
+      <router-link
+        to="/"
+        class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0"
+      >
         <img
-          @click="reload"
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="mr-6 cursor-pointer"
+          class="cursor-pointer"
         />
-      </div>
+      </router-link>
+      <Searchbar />
     </section>
 
     <!--
@@ -148,6 +149,10 @@
     </div>
   -->
 
+    <div class="items-center justify-center flex">
+      <h1 class="text-5xl ml-4 my-6 font-bold text-[#4C4556]">Top ponuky:</h1>
+    </div>
+
     <section class="w-full overflow-auto">
       <section>
         <div
@@ -230,18 +235,20 @@ export default {
       return this.$store.state.cards;
     },
     featured() {
-    return this.$store.state.featured;
-  },
+      return this.$store.state.featured;
+    },
   },
   mounted() {
-    this.$store.dispatch("fetchCards")
-    .then(() => {
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 1000);})
+    this.$store
+      .dispatch("fetchCards")
+      .then(() => {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 1000);
+      })
       .catch((error) => {
         console.error("Error fetching cards:", error);
-      })
+      });
   },
   methods: {
     scroll(amount) {

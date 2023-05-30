@@ -2,7 +2,10 @@
   <section
     class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
   >
-    <router-link to="/" class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0">
+    <router-link
+      to="/"
+      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0"
+    >
       <img
         src="/src/assets/images/vipapanna1.svg"
         alt=""
@@ -16,13 +19,15 @@
       :style="{ backgroundImage: `url(${selectedCard.image})` }"
       class="text-white bg-cover bg-center"
     >
-      <router-link to="/">
-        <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
-      </router-link>
-      <div class="flex flex-col pl-10 pt-14 pb-20">
-        <h1 class="text-6xl">{{ selectedCard.title }}</h1>
-        <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
-        <h2 class="text-xl break-normal">{{ selectedCard.address }}</h2>
+      <div class="inset-0 bg-black bg-opacity-40">
+        <router-link to="/">
+          <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
+        </router-link>
+        <div class="flex flex-col pl-10 pt-14 pb-20">
+          <h1 class="text-6xl">{{ selectedCard.title }}</h1>
+          <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
+          <h2 class="text-xl break-normal">{{ selectedCard.address }}</h2>
+        </div>
       </div>
     </div>
 
@@ -85,7 +90,7 @@ export default {
           `https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`
         )
         .then((response) => {
-          console.log(response)
+          console.log(response);
           const menu = response.data.data.map((item) => ({
             food_name: item.food_name,
             food_image_link: item.food_image_link,
