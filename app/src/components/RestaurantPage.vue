@@ -12,7 +12,7 @@
         class="cursor-pointer"
       />
     </router-link>
-    <Searchbar />
+
   </section>
   <section style="font-family: 'Cabin', sans-serif">
     <div
