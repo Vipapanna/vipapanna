@@ -38,7 +38,10 @@ class RestaurantImport extends Command
         $body = json_decode($response->body(), true);
 
         $items = $body['sections'][1]['items'];
-        for ($i = 0; $i < 64; $i++) {
+
+
+
+        for ($i = 3; $i < 100; $i++) {
             $item = $items[$i];
 
             $slug = array_get($item, 'venue.slug');

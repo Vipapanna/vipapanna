@@ -5,6 +5,7 @@ namespace Vipapanna\Restaurants\Http\Controllers;
 use Vipapanna\Restaurants\Http\Resources\RestaurantResource;
 use Vipapanna\Restaurants\Models\Restaurant;
 use Illuminate\Routing\Controller;
+use function React\Promise\all;
 
 class RestaurantController extends Controller{
 
@@ -14,7 +15,7 @@ class RestaurantController extends Controller{
 
     public function restaurants(){
         $featuredRestaurants = Restaurant::take(5)->get();
-        $allRestaurants = Restaurant::skip(5)->take(59)->get();
+        $allRestaurants = Restaurant::skip(5)->take(PHP_INT_MAX)->get();
 
         return response()->json([
             'featured' => $featuredRestaurants,
