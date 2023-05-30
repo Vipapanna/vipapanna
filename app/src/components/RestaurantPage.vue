@@ -1,22 +1,22 @@
 <template>
-  <section
-    class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
-  >
+  <section class="bg-[#4C4556] flex h-auto w-full">
     <router-link
       to="/"
-      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0"
+      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 absolute"
     >
       <img
         src="/src/assets/images/vipapanna1.svg"
         alt=""
-        class="cursor-pointer"
+        class="cursor-pointer relative"
       />
     </router-link>
-    <Searchbar />
+    <Searchbar class="my-4" />
   </section>
   <section style="font-family: 'Cabin', sans-serif">
     <div
-    :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${selectedCard.image})` }"
+      :style="{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${selectedCard.image})`,
+      }"
       class="text-white bg-cover bg-center"
     >
       <div class="inset-0 bg-black bg-opacity-40">
