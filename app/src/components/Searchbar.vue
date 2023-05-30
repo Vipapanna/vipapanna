@@ -43,10 +43,11 @@ export default {
       const res = await axios.get(
         `https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/search?query=${this.search}`
       );
-      this.searchResults = res.data.slice(0, 5).map((result) => ({
+      this.searchResults = res.data.slice(0, 4).map((result) => ({
         title: result.restaurant_name,
         image: result.restaurant_image_link,
         rating: result.review,
+        star: Math.floor(result.review),
         address: result.address,
         id: result.id,
       }));
