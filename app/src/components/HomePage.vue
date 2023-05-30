@@ -14,7 +14,7 @@
         <img
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="cursor-pointer absolute"
+          class="cursor-pointer"
         />
       </router-link>
       <Searchbar class="my-4" />
