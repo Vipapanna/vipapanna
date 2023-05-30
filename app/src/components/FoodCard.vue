@@ -1,9 +1,9 @@
 <template>
-  <div class="items-center flex mb-8 w-[40rem]">
+  <div class="items-center flex mb-8 lg:w-[40rem] mx-2">
     <div
       class="flex flex-row border-gray-300 border-2 items-center lg:w-[50rem] rounded-xl"
     >
-      <h3 class="lg:text-2xl mx-auto ml-4 text-gray-500 break-normal">
+      <h3 class="lg:text-2xl mx-auto ml-4 text-gray-500 break-all">
         {{ FoodName }}
       </h3>
       <img
@@ -11,8 +11,7 @@
         :src="FoodImageLink || '/src/assets/images/big-mac.png'"
         alt="placeholder.png"
       />
-      <p>
-      </p>
+      <p></p>
     </div>
   </div>
 </template>
