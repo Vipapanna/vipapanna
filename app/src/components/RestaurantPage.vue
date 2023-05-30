@@ -21,7 +21,7 @@
     >
       <div class="inset-0 bg-black bg-opacity-40">
         <router-link to="/">
-          <img class="h-[3rem] ml-3 contents" src="/src/assets/images/back.png" alt="" />
+          <img class="h-[3rem] ml-3 contents" :src="placeholder" alt="" />
         </router-link>
         <div class="flex flex-col pl-10 pt-14 pb-20">
           <h1 class="text-6xl">{{ selectedCard.title }}</h1>
@@ -79,6 +79,9 @@ export default {
     selectedCard() {
       return this.$store.state.selectedCard;
     },
+    placeholder() {
+      return new URL('/src/assets/images/big-mac.jpeg', import.meta.url).href
+    }
   },
   methods: {
     openModal(Name, Image, link_bistro, price_bistro, link_wolt, price_wolt) {
