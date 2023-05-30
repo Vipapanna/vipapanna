@@ -34,21 +34,40 @@
     <div
       class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
     >
-    <FoodCard
-      @click="openModal(food.food_name, food.food_image_link, food.link_bistro, food.price_bistro, food.link_wolt, food.price_wolt)"
-      class="m-auto cursor-pointer"
-      v-for="food in menu"
-      :key="food.id"
-      :FoodName="food.food_name"
-      :FoodImageLink="food.food_image_link"
-    />
+      <FoodCard
+        @click="
+          openModal(
+            food.food_name,
+            food.food_image_link,
+            food.link_bistro,
+            food.price_bistro,
+            food.link_wolt,
+            food.price_wolt
+          )
+        "
+        class="m-auto cursor-pointer"
+        v-for="food in menu"
+        :key="food.id"
+        :FoodName="food.food_name"
+        :FoodImageLink="food.food_image_link"
+      />
 
-      <Dialog v-model:visible="visible" modal :header="modalName" :style="{ width: '50vw' }">
-       <img :src="modalImage" alt="" />
-       <a :href="link_b">link Bistro</a>
-       <p>{{ price_b }} €</p>
-       <a :href="link_w">link Wolt</a>
-       <p>{{ price_w }} €</p>
+      <Dialog
+        v-model:visible="visible"
+        modal
+        :header="modalName"
+        :style="{ width: '50vw' }"
+      >
+        <img :src="modalImage" alt="" />
+        <div class="flex flex-row justify-between text-xl">
+          <a :href="link_w">Wolt</a>
+          <p>{{ price_w }} €</p>
+        </div>
+
+        <div class="flex flex-row justify-between text-xl">
+          <a :href="link_b">Bistro</a>
+          <p>{{ price_b }} €</p>
+        </div>
       </Dialog>
     </div>
   </section>
@@ -81,7 +100,7 @@ export default {
       this.link_w = link_wolt;
       this.price_w = price_wolt;
       this.visible = true;
-},
+    },
   },
   mounted() {
     window.scroll(0, 0);
@@ -116,10 +135,10 @@ export default {
       visible: false,
       modalName: "",
       modalImage: "",
-      link_b:"",
-      price_b:"",
-      link_w:"",
-      price_w:"",
+      link_b: "",
+      price_b: "",
+      link_w: "",
+      price_w: "",
     };
   },
 };

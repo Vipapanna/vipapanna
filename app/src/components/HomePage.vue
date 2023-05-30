@@ -4,7 +4,7 @@
   </div>
   <section id="mainpage" style="font-family: 'Cabin'" class="">
     <section
-      class="bg-[#4C4556] flex h-20 justify-center lg:justify-between md:justify-between w-full"
+      class="bg-[#4C4556] flex h-auto justify-center lg:justify-between md:justify-between w-full"
     >
       <router-link
         to="/"
@@ -16,7 +16,7 @@
           class="cursor-pointer"
         />
       </router-link>
-      <Searchbar />
+      <Searchbar class="my-4" />
     </section>
 
     <!--
