@@ -7,21 +7,23 @@
       type="text"
       placeholder="Vypapajte si to..."
     />
-    <div v-if="search !== ''" class="col-auto">
-      <div class="bg-[#4C4556]">
-        <Card
-            class="m-auto cursor-pointer"
-            @click="selectCard(result)"
-            v-for="result in searchResults"
-            :key="result"
-            :title="result.title"
-            :image="result.image"
-            :rating="result.rating"
-            :star="result.star"
-          />
-        </div>
-      </div>
+  <div v-if="search !== ''" class="flex-row">
+    <div class="bg-[#4C4556] flex flex-wrap justify-center items-start mt-4">
+      <Card
+        class="m-auto cursor-pointer w-[calc(25%-1rem)] mb-4"
+        @click="selectCard(result)"
+        v-for="result in searchResults"
+        :key="result"
+        :title="result.title"
+        :image="result.image"
+        :rating="result.rating"
+        :star="result.star"
+      />
+    </div>
+  </div>
 </template>
+
+
 
 <script>
 import axios from 'axios';
