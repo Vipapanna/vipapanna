@@ -1,6 +1,6 @@
 <template>
     <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black z-50">
-      <div class="text-white">Loading...</div>
+      <img src="/src/assets/images/vipapanna1.svg"/>
     </div>
   <section id="mainpage">
     <section
