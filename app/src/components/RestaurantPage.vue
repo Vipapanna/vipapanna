@@ -58,7 +58,6 @@ import Footer from "./Footer.vue";
 import axios from "axios";
 import FoodCard from "./FoodCard.vue";
 import Dialog from "primevue/dialog";
-import { isPromise } from "@vue/shared";
 import Backbtn from "./Backbtn.vue";
 
 export default {
@@ -78,6 +77,7 @@ export default {
   },
   mounted() {
     window.scroll(0, 0);
+    console.log(this.selectedCard);
 
     if (this.selectedCard && this.selectedCard.id) {
       axios
@@ -85,6 +85,7 @@ export default {
           `https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`
         )
         .then((response) => {
+          console.log(response)
           const menu = response.data.data.map((item) => ({
             food_name: item.food_name,
             food_image_link: item.food_image_link,
