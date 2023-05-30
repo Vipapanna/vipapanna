@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-white">
+    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center ">
       <div class="text-white">Loading...</div>
     </div>
   <section id="mainpage">
@@ -162,6 +162,7 @@
             class="lg:h-96 h-56 self-center rounded-lg m-4"
             alt=""
           />
+          <h1>{{ featured.title }}</h1>
         </div>
 
         <button
