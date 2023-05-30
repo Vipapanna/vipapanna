@@ -5,7 +5,6 @@ const store = createStore({
   state: {
     cards: [],
     featured: [],
-    selectedCard: JSON.parse(localStorage.getItem('selectedCard') || '{}'),
   },
   mutations: {
     setCards(state, cards) {
@@ -21,9 +20,12 @@ const store = createStore({
   },
   actions: {
     fetchCards(context) {
-      axios
+      return new Promise((resolve, reject) => {
+
+        axios
         .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
-        .then(response => {
+        .then
+          (response => {
           const cards = response.data.all.map(item => ({
             title: item.restaurant_name,
             image: item.restaurant_image_link,
@@ -40,15 +42,17 @@ const store = createStore({
             address: item.address,
             id: item.id,
           }));
-
+          
           context.commit('setCards', cards);
           context.commit('setFeatured', featured);
+          resolve(response)
         })
         .catch(error => {
           console.error(error);
         });
+      })
+      },
     },
-  },
   getters: {
     getSelectedCard: state => {
       return state.selectedCard;

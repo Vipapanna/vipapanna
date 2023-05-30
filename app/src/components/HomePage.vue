@@ -1,8 +1,8 @@
 <template>
-  <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center">
-    <div class="text-white">Loading...</div>
-  </div>
-  <section id="mainpage" style="font-family: 'Cabin'" class="">
+    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black z-50">
+      <img src="/src/assets/images/vipapannaText.svg"/>
+    </div>
+  <section id="mainpage">
     <section
       class="bg-[#4C4556] flex h-auto justify-center lg:justify-between md:justify-between w-full"
     >
@@ -19,137 +19,7 @@
       <Searchbar class="my-4" />
     </section>
 
-    <!--
-      <button
-        class="w-20 h-11 rounded-2xl bg-white bg-opacity-20 drop-shadow-md text-white font-sans self-center mr-4 hover:opacity-90 cursor-pointer lg:w-24 lg:h-12"
-        @click="popup"
-      >
-        Log In
-      </button>
-
-    </section>
-
-    <section
-      class="bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center z-50"
-      id="overlay"
-    >
-      <div
-        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center absolute"
-        id="loginp"
-      >
-        <Backbtn 
-        class="cursor-pointer" 
-        @click="close"
-        />
-
-        <input
-          type="email"
-          class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
-          placeholder="example@gmail.com"
-          name=""
-          id="email1"
-        />
-        <input
-          type="password"
-          class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
-          placeholder="Heslo"
-          name=""
-          id="pword1"
-        />
-  
-        <div class="space-x-24 mb-9">
-          
-          <button
-            class="bg-transparent text-[0.8rem] text-blue-500"
-            @click="register"
-            id="create-account"
-          >
-            Vytvorit ucet
-          </button>
-          
-          <button
-            class="bg-transparent text-[0.8rem] text-blue-500"
-            @click="forgotpasword"
-            id="forgotten-password"
-          >
-            Zabudnute heslo
-          </button>
-
-        </div>
-  
-        <button
-          class="rounded-xl bg-gray-400 bg-opacity-20 w-28 h-9 hover:opacity-80"
-        >
-          Log In
-        </button>
-      </div>
-  
-      <div
-        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center hidden pb-10"
-        id="regpage"
-      >
-        <Backbtn 
-        class="cursor-pointer mt-12"
-        @click="regclose"
-        />
-  
-        <input
-          type="email"
-          class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
-          placeholder="example@gmail.com"
-          name=""
-        />
-        <input
-          type="password"
-          class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
-          placeholder="Heslo"
-          name=""
-        />
-        <input
-          type="password"
-          class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
-          placeholder="znova zadanie Heslo"
-          name=""
-          id="p1"
-        />
-  
-        <button
-            class="rounded-xl bg-gray-400 bg-opacity-20 w-28 h-9 hover:opacity-80 mt-5"
-        >
-          Registracia
-        </button>
-        
-      </div>
-  
-      <div
-        class="bg-white rounded-2xl flex-col w-[24rem] h-[28rem] justify-center items-center hidden"
-        id="resetpasswordpage"
-      >
-        <Backbtn id="back-btn" 
-        class="cursor-pointer"
-        @click="forgotclose"/>
-  
-        <h1 class="mb-14 text-center">
-          Na zadanú emailovu adresu vám bude <br />
-          zaslaný link na obnovu vašeho hesla
-        </h1>
-        <input
-          type="email"
-          class="h-8 rounded-3xl self-center bg-gray-400 bg-opacity-20 drop-shadow-md w-[18rem] m-2 text-center"
-          placeholder="example@gmail.com"
-          name=""
-          id="e1"
-        />
-  
-        <button
-        class="rounded-xl bg-gray-400 bg-opacity-20 w-32 h-10 hover:opacity-80 mt-10"
-        >
-        poslať
-      </button>
-    </div>
-  -->
-
-    <div class="items-center justify-center flex">
+    <div class="items-center flex">
       <h1 class="text-5xl ml-4 my-6 font-bold text-[#4C4556]">Top ponuky:</h1>
     </div>
 
@@ -167,7 +37,7 @@
             class="lg:h-96 h-56 self-center rounded-lg m-4"
             alt=""
           />
-          <h1>{{ featured.title }}</h1>
+          <h1>{{ featured.image }}</h1>
         </div>
 
         <button
@@ -226,7 +96,6 @@ import Footer from "./Footer.vue";
 import Backbtn from "./Backbtn.vue";
 import Card from "./Card.vue";
 import Location from "./location.vue";
-import axios from "axios";
 
 export default {
   components: { Searchbar, Backbtn, Card, Location, Footer },
@@ -239,13 +108,10 @@ export default {
       return this.$store.state.featured;
     },
   },
-  mounted() {
-    this.$store
-      .dispatch("fetchCards")
+  async mounted() {
+    await this.$store.dispatch("fetchCards")
       .then(() => {
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 1000);
+        this.isLoading = false;
       })
       .catch((error) => {
         console.error("Error fetching cards:", error);

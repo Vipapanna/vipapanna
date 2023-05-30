@@ -8,13 +8,18 @@
       type="text"
       placeholder="Vypapajte si to..."
     />
-    <div v-if="search !== ''" class="cols-auto">
-      <div
-        v-for="result in searchResults"
-        :key="result.id"
-        class="bg-white rounded-lg p-2 my-2"
-      >
-        <p @click="selectCard(result)" class="text-black">{{ result.title }}</p>
+    <div v-if="search !== ''" class="flex-row">
+      <div class="bg-[#4C4556] flex flex-wrap justify-center items-start mt-4">
+        <Card
+          class="m-auto cursor-pointer w-[calc(25%-1rem)] mb-4"
+          @click="selectCard(result)"
+          v-for="result in searchResults"
+          :key="result"
+          :title="result.title"
+          :image="result.image"
+          :rating="result.rating"
+          :star="result.star"
+        />
       </div>
     </div>
   </div>
@@ -22,8 +27,11 @@
 
 <script>
 import axios from "axios";
+import Card from "./Card.vue";
 
 export default {
+  components: { Card },
+
   data() {
     return {
       search: "",
