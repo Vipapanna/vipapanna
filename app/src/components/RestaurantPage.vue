@@ -16,16 +16,24 @@
   </section>
   <section style="font-family: 'Cabin', sans-serif">
     <div
-    :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${selectedCard.image})` }"
+      :style="{ backgroundImage: `url(${selectedCard.image})` }"
       class="text-white bg-cover bg-center"
     >
       <div class="inset-0 bg-black bg-opacity-40">
         <router-link to="/">
-          <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
+          <img class="h-[3rem] ml-3 contents" src="/src/assets/images/back.png" alt="" />
         </router-link>
         <div class="flex flex-col pl-10 pt-14 pb-20">
           <h1 class="text-6xl">{{ selectedCard.title }}</h1>
           <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
+          <div class="flex flex-row ml-3 mb-2">
+        <img
+          v-for="index in selectedCard.rating"
+          :key="index"
+          src="/src/assets/images/rating-star.svg"
+          alt=""
+        />
+      </div>
           <h2 class="text-xl break-normal">{{ selectedCard.address }}</h2>
         </div>
       </div>
@@ -34,40 +42,21 @@
     <div
       class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
     >
-      <FoodCard
-        @click="
-          openModal(
-            food.food_name,
-            food.food_image_link,
-            food.link_bistro,
-            food.price_bistro,
-            food.link_wolt,
-            food.price_wolt
-          )
-        "
-        class="m-auto cursor-pointer"
-        v-for="food in menu"
-        :key="food.id"
-        :FoodName="food.food_name"
-        :FoodImageLink="food.food_image_link"
-      />
+    <FoodCard
+      @click="openModal(food.food_name, food.food_image_link, food.link_bistro, food.price_bistro, food.link_wolt, food.price_wolt)"
+      class="m-auto cursor-pointer"
+      v-for="food in menu"
+      :key="food.id"
+      :FoodName="food.food_name"
+      :FoodImageLink="food.food_image_link"
+    />
 
-      <Dialog
-        v-model:visible="visible"
-        modal
-        :header="modalName"
-        :style="{ width: '50vw' }"
-      >
-        <img :src="modalImage" alt="" />
-        <div class="flex flex-row justify-between text-xl">
-          <a :href="link_w">Wolt</a>
-          <p>{{ price_w }} €</p>
-        </div>
-
-        <div class="flex flex-row justify-between text-xl">
-          <a :href="link_b">Bistro</a>
-          <p>{{ price_b }} €</p>
-        </div>
+      <Dialog v-model:visible="visible" modal :header="modalName" :style="{ width: '50vw' }">
+       <img :src="modalImage" alt="" />
+       <a :href="link_b">link Bistro</a>
+       <p>{{ price_b }} €</p>
+       <a :href="link_w">link Wolt</a>
+       <p>{{ price_w }} €</p>
       </Dialog>
     </div>
   </section>
@@ -100,7 +89,7 @@ export default {
       this.link_w = link_wolt;
       this.price_w = price_wolt;
       this.visible = true;
-    },
+},
   },
   mounted() {
     window.scroll(0, 0);
@@ -135,10 +124,10 @@ export default {
       visible: false,
       modalName: "",
       modalImage: "",
-      link_b: "",
-      price_b: "",
-      link_w: "",
-      price_w: "",
+      link_b:"",
+      price_b:"",
+      link_w:"",
+      price_w:"",
     };
   },
 };

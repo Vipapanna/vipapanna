@@ -58,9 +58,6 @@ export default {
         name: "RestaurantPage",
         params: { refreshKey: Date.now() },
       });
-      if (this.$route.name === "RestaurantPage") {
-        window.location.reload();
-      }
     },
   },
   watch: {
