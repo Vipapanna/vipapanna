@@ -1,5 +1,6 @@
 <?php namespace App\RestaurantImport\Console;
 
+use http\Exception;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
@@ -37,7 +38,10 @@ class RestaurantImport extends Command
         $body = json_decode($response->body(), true);
 
         $items = $body['sections'][1]['items'];
-        for ($i = 0; $i < 64; $i++) {
+
+
+
+        for ($i = 3; $i < 100; $i++) {
             $item = $items[$i];
 
             $slug = array_get($item, 'venue.slug');
@@ -71,6 +75,10 @@ class RestaurantImport extends Command
                         $bistroSlug = $bistroBody['shops']['groups'][0]['items'][0]['sefName'];
                         $bistroLink = "https://www.bistro.sk/restauracia/{$bistroSlug}";
                     }
+                    $bistroRestaurantResponse = Http::get("https://rest.bistro.sk/shop/{$bistroSlug}?location[ref]=street&location[searchableName]=Bratislava+-+Star%C3%A9+Mesto,+Pribinova");
+                    $bistroRestaurantBody = json_decode($bistroRestaurantResponse->body(), true);
+
+                    $bistroPrice = $bistroRestaurantBody['categories'][0]['products'][0]['price'];
 
                     $price = $foodItem['baseprice'];
                     $restaurant->foods()->create([
@@ -79,7 +87,8 @@ class RestaurantImport extends Command
                         'price_wolt' => $price / 100,
                         'link_wolt' => $woltUrl,
                         'food_image_link' => $foodItem['image'],
-                        'link_bistro' => $bistroLink
+                        'link_bistro' => $bistroLink,
+                        'price_bistro' => $bistroPrice,
                     ]);
                 }
             } catch (\Exception $e) {

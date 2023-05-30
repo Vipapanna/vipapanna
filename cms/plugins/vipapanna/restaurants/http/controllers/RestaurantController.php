@@ -5,6 +5,7 @@ namespace Vipapanna\Restaurants\Http\Controllers;
 use Vipapanna\Restaurants\Http\Resources\RestaurantResource;
 use Vipapanna\Restaurants\Models\Restaurant;
 use Illuminate\Routing\Controller;
+use function React\Promise\all;
 
 class RestaurantController extends Controller{
 
@@ -12,9 +13,16 @@ class RestaurantController extends Controller{
         return RestaurantResource::make(Restaurant::findOrFail($id));
     }
 
-    public function restaurant(){
-        return RestaurantResource::collection(Restaurant::all());
+    public function restaurants(){
+        $featuredRestaurants = Restaurant::take(5)->get();
+        $allRestaurants = Restaurant::skip(5)->take(PHP_INT_MAX)->get();
+
+        return response()->json([
+            'featured' => $featuredRestaurants,
+            'all' => $allRestaurants
+        ]);
     }
+
     public function restaurantSearch(){
         $search_text = input('query');
         $restaurants = Restaurant::where('restaurant_name', 'like', '%'.$search_text.'%')
@@ -26,7 +34,6 @@ class RestaurantController extends Controller{
             ->get();
 
         return $restaurants;
-
     }
 }
 
