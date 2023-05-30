@@ -51,6 +51,7 @@ export default {
         title: result.restaurant_name,
         image: result.restaurant_image_link,
         rating: result.review,
+        star: Math.floor(result.review),
         address: result.address,
         id: result.id,
       }));
