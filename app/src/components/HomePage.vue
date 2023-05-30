@@ -1,7 +1,10 @@
 <template>
-    <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black z-50">
-      <img src="/src/assets/images/vipapannaText.svg"/>
-    </div>
+  <div
+    v-if="isLoading"
+    class="fixed inset-0 flex items-center justify-center bg-black z-50"
+  >
+    <img src="/src/assets/images/vipapannaText.svg" />
+  </div>
   <section id="mainpage">
     <section
       class="bg-[#4C4556] flex h-auto justify-center lg:justify-between md:justify-between w-full"
@@ -20,7 +23,12 @@
     </section>
 
     <div class="items-center flex">
-      <h1 class="text-5xl ml-4 my-6 font-bold text-[#4C4556]">Top ponuky:</h1>
+      <h1
+        class="text-5xl ml-4 my-6 font-bold text-[#4C4556]"
+        style="font-family: 'Cabin'"
+      >
+        Top ponuky:
+      </h1>
     </div>
 
     <section class="w-full overflow-auto">
@@ -41,13 +49,13 @@
         </div>
 
         <button
-          class="opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 z-1"
+          class="hidden opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 z-1"
           @click="scroll(-600)"
         >
           «
         </button>
         <button
-          class="opacity-40 lg:absolute lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
+          class="hidden opacity-40 lg:absolute lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
           @click="scroll(600)"
         >
           »
@@ -109,7 +117,8 @@ export default {
     },
   },
   async mounted() {
-    await this.$store.dispatch("fetchCards")
+    await this.$store
+      .dispatch("fetchCards")
       .then(() => {
         this.isLoading = false;
       })
