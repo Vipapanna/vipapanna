@@ -34,22 +34,21 @@
     <div
       class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
     >
-      <FoodCard
-        @click="openModal(food.food_name, food.food_image_link)"
-        class="m-auto cursor-pointer"
-        v-for="food in menu"
-        :key="food.id"
-        :FoodName="food.food_name"
-        :FoodImageLink="food.food_image_link"
-      />
+    <FoodCard
+      @click="openModal(food.food_name, food.food_image_link, food.link_bistro, food.price_bistro, food.link_wolt, food.price_wolt)"
+      class="m-auto cursor-pointer"
+      v-for="food in menu"
+      :key="food.id"
+      :FoodName="food.food_name"
+      :FoodImageLink="food.food_image_link"
+    />
 
-      <Dialog
-        v-model:visible="visible"
-        modal
-        :header="modalName"
-        :style="{ width: '50vw' }"
-      >
-        <img :src="modalImage" alt="" />
+      <Dialog v-model:visible="visible" modal :header="modalName" :style="{ width: '50vw' }">
+       <img :src="modalImage" alt="" />
+       <a :href="link_b">link Bistro</a>
+       <p>{{ price_b }} €</p>
+       <a :href="link_w">link Wolt</a>
+       <p>{{ price_w }} €</p>
       </Dialog>
     </div>
   </section>
@@ -74,11 +73,15 @@ export default {
     },
   },
   methods: {
-    openModal(Name, Image) {
+    openModal(Name, Image, link_bistro, price_bistro, link_wolt, price_wolt) {
       this.modalName = Name;
       this.modalImage = Image;
+      this.link_b = link_bistro;
+      this.price_b = price_bistro;
+      this.link_w = link_wolt;
+      this.price_w = price_wolt;
       this.visible = true;
-    },
+},
   },
   mounted() {
     window.scroll(0, 0);
@@ -95,6 +98,10 @@ export default {
             food_name: item.food_name,
             food_image_link: item.food_image_link,
             food_info: item.description,
+            link_bistro: item.link_bistro,
+            price_bistro: item.price_bistro,
+            link_wolt: item.link_wolt,
+            price_wolt: item.price_wolt,
           }));
           this.menu = menu;
         })
@@ -109,6 +116,10 @@ export default {
       visible: false,
       modalName: "",
       modalImage: "",
+      link_b:"",
+      price_b:"",
+      link_w:"",
+      price_w:"",
     };
   },
 };

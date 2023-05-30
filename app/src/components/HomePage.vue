@@ -167,6 +167,7 @@
             class="lg:h-96 h-56 self-center rounded-lg m-4"
             alt=""
           />
+          <h1>{{ featured.title }}</h1>
         </div>
 
         <button
