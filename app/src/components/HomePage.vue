@@ -1,6 +1,6 @@
 <template>
     <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center bg-black z-50">
-      <img src="/src/assets/images/vipapanna1.svg"/>
+      <img src="/src/assets/images/vipapannaText.svg"/>
     </div>
   <section id="mainpage">
     <section
@@ -162,7 +162,7 @@
             class="lg:h-96 h-56 self-center rounded-lg m-4"
             alt=""
           />
-          <h1>{{ featured.title }}</h1>
+          <h1>{{ featured.image }}</h1>
         </div>
 
         <button

@@ -25,7 +25,8 @@ const store = createStore({
 
         axios
         .get('https://vypapanna.hybridlab.dev/cms/api/v1/restaurants')
-        .then(response => {
+        .then
+          (response => {
           const cards = response.data.all.map(item => ({
             title: item.restaurant_name,
             image: item.restaurant_image_link,
