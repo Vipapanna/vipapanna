@@ -8,16 +8,28 @@
       placeholder="Vypapajte si to..."
     />
     <div v-if="search !== ''" class="col-auto">
-      <div v-for="result in searchResults" :key="result.id" class="bg-white rounded-lg p-2 my-2">
-        <p @click="selectCard(result)" class="text-black">{{ result.title }}</p>
+      <div class="bg-[#4C4556]">
+        <Card
+            class="m-auto cursor-pointer"
+            @click="selectCard(result)"
+            v-for="result in searchResults"
+            :key="result"
+            :title="result.title"
+            :image="result.image"
+            :rating="result.rating"
+            :star="result.star"
+          />
+        </div>
       </div>
-    </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Card from './Card.vue';
 
 export default {
+  components: { Card, },
+
   data() {
     return {
       search: '',

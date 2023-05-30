@@ -5,7 +5,6 @@ const store = createStore({
   state: {
     cards: [],
     featured: [],
-    selectedCard: JSON.parse(localStorage.getItem('selectedCard') || '{}'),
   },
   mutations: {
     setCards(state, cards) {

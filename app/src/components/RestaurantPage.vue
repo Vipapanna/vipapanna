@@ -16,7 +16,7 @@
   </section>
   <section style="font-family: 'Cabin', sans-serif">
     <div
-      :style="{ backgroundImage: `url(${selectedCard.image})` }"
+    :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${selectedCard.image})` }"
       class="text-white bg-cover bg-center"
     >
       <div class="inset-0 bg-black bg-opacity-40">
