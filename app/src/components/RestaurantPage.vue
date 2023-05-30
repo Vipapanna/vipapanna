@@ -2,15 +2,14 @@
   <section class="bg-[#4C4556] flex h-auto w-full">
     <router-link
       to="/"
-      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 absolute"
+      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 my-4"
     >
       <img
         src="/src/assets/images/vipapanna1.svg"
         alt=""
-        class="cursor-pointer relative"
+        class="cursor-pointer"
       />
     </router-link>
-    <Searchbar class="my-4" />
   </section>
   <section style="font-family: 'Cabin', sans-serif">
     <div
@@ -51,12 +50,22 @@
       :FoodImageLink="food.food_image_link"
     />
 
-      <Dialog v-model:visible="visible" modal :header="modalName" :style="{ width: '50vw' }">
-       <img :src="modalImage" alt="" />
-       <a :href="link_b">link Bistro</a>
-       <p>{{ price_b }} €</p>
-       <a :href="link_w">link Wolt</a>
-       <p>{{ price_w }} €</p>
+      <Dialog
+        v-model:visible="visible"
+        modal
+        :header="modalName"
+        :style="{ width: '50vw' }"
+      >
+        <img :src="modalImage" alt="" />
+        <div class="flex flex-row justify-between text-xl mt-6 text-blue-400">
+          <a :href="link_w" class="underline">Wolt</a>
+          <p>{{ price_w }} €</p>
+        </div>
+
+        <div class="flex flex-row justify-between text-xl mt-4 text-orange-400">
+          <a :href="link_b" class="underline">Bistro</a>
+          <p>{{ price_b }} €</p>
+        </div>
       </Dialog>
     </div>
   </section>
