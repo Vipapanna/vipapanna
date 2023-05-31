@@ -9,10 +9,11 @@
         <img
           v-for="index in star"
           :key="index"
+          class="mx-[1px]"
           src="/src/assets/images/rating-star.svg"
           alt=""
         />
-        <a> {{ rating }}</a>
+        <a class="ml-2 tracking-widest"> {{ rating }}/5</a>
       </div>
     </div>
   </div>

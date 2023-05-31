@@ -6,17 +6,15 @@
     <img src="/src/assets/images/vipapannaText.svg" />
   </div>
   <section id="mainpage">
-    <section
-      class="bg-[#4C4556] flex h-auto justify-center lg:justify-between md:justify-between w-full"
-    >
+    <section class="bg-[#4C4556] flex h-auto w-full">
       <router-link
         to="/"
-        class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0"
+        class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 absolute"
       >
         <img
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="cursor-pointer absolute"
+          class="cursor-pointer"
         />
       </router-link>
       <Searchbar class="my-4" />

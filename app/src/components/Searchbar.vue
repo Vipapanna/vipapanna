@@ -1,17 +1,21 @@
 <template>
-  <div class="flex flex-col">
-    <input
-      class="h-10 rounded-3xl w-[20rem] self-center bg-white bg-opacity-20 drop-shadow-md text-center text-white lg:mr-[31rem] lg:w-[30rem]"
-      v-model="search"
-      autocomplete="off"
-      name="query"
-      type="text"
-      placeholder="Vypapajte si to..."
-    />
+  <div class="flex w-full justify-center items-center flex-col">
+    <div class="flex justify-center">
+      <input
+        class="h-10 rounded-3xl w-[20rem] bg-white bg-opacity-20 drop-shadow-md text-center text-white lg:w-[30rem]"
+        v-model="search"
+        autocomplete="off"
+        name="query"
+        type="text"
+        placeholder="Vypapajte si to..."
+      />
+    </div>
     <div v-if="search !== ''" class="flex-row">
-      <div class="bg-[#4C4556] flex flex-wrap justify-center items-start mt-4">
+      <div
+        class="bg-[#4C4556] grid grid-cols-4 justify-center items-start mt-4"
+      >
         <Card
-          class="m-auto cursor-pointer w-[calc(25%-1rem)] mb-4"
+          class="m-3 cursor-pointer w-[19rem] mb-4"
           @click="selectCard(result)"
           v-for="result in searchResults"
           :key="result"
