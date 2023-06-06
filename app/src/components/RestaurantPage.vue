@@ -44,7 +44,10 @@
     <div
       class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
     >
-    
+
+
+<!-- MAXIM TOTO DOROB (SKELETON LOADER)-->
+
   <div v-if="foodLoading">
     <div v-for="index in 20" :key="index">
     <div role="status" class="flex flex-row border-gray-300 border-2 items-center lg:w-[41rem] rounded-xl">
@@ -54,10 +57,6 @@
       <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4 mx-auto ml-4"></div>
     <span class="sr-only">Loading...</span>
     <div class="items-center flex mb-8 lg:w-[40rem] mx-2">
-      <h3 class="lg:text-2xl mx-auto ml-4 text-gray-500 break-all">
-        {{ FoodName }}
-      </h3>
-
     </div>
   </div>
 </div>
@@ -98,11 +97,10 @@
 
       <Dialog v-model:visible="visible" modal :style="{ width: '50vw' }">
         <img :src="modalImage" alt="" />
-        <div class="flex flex-row justify-between text-2xl mt-6 text-white">
-          <a :href="link_w" class="underline bg-blue-400 p-1 px-2 rounded-lg"
-            >Wolt</a
-          >
-          <p class="text-blue-400">{{ price_w }} €</p>
+        <p>Zložte si Vaše McMenu so sendvičom Big Mac, hranolkami alebo záhradným šalátom so zálievkou a veľkým nápojom. Alergény sú uvedené pri jednotlivých produktoch v ponuke.</p>
+        <div class="flex flex-row justify-between text-xl mt-6 text-blue-400">
+          <a :href="link_w" class="underline">Wolt</a>
+          <p>{{ price_w }} €</p>
         </div>
 
         <div class="flex flex-row justify-between text-2xl mt-4 text-white">
