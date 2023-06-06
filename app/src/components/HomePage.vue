@@ -3,6 +3,7 @@
     v-if="isLoading"
     class="fixed inset-0 flex items-center justify-center bg-black z-50"
   >
+  
     <img src="/src/assets/images/vipapannaText.svg" />
   </div>
   <section id="mainpage" class="bg-slate-100">
@@ -14,7 +15,7 @@
         <img
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="cursor-pointer"
+          class="cursor-pointer mt-2"
         />
       </router-link>
       <Searchbar class="my-4" />
@@ -40,30 +41,35 @@
             @click="selectCard(featured)"
             :key="featured"
             :src="featured.image"
-            class="lg:h-96 h-56 self-center rounded-lg m-4"
+            class="lg:h-96 h-56 self-center rounded-lg m-4 cursor-pointer"
             alt=""
-          />
-          <h1>{{ featured.image }}</h1>
+            />
+            <h1 
+              v-for="featured in featured"
+              :key="featured">
+              {{ featured.title }}
+            </h1>
         </div>
-
+        
         <button
-          class="hidden opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 z-1"
+        class="hidden opacity-40 lg:absolute lg:top-64 lg:left-8 px-4 py-2 h-12 w-12 first-letter: bg-gray-200 text-gray-700 font-semibold rounded-full mt-4 z-1"
           @click="scroll(-600)"
-        >
+          >
           «
         </button>
         <button
           class="hidden opacity-40 lg:absolute lg:top-64 lg:right-8 px-4 py-2 h-12 w-12 bg-gray-200 text-gray-700 font-semibold rounded-full mt-4"
           @click="scroll(600)"
-        >
+          >
           »
         </button>
       </section>
-
+      
       <section class="my-14">
         <div class="flex items-center justify-center flex-col mb-8">
           <div class="flex flex-row justify-center items-center">
-            <p>lokacias</p>
+            <p>lokacia</p>
+            <!--lokacias lol-->
             <div @click="showLocation = !showLocation" class="cursor-pointer">
               <img
                 class="h-12"
