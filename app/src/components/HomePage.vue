@@ -3,6 +3,7 @@
     v-if="isLoading"
     class="fixed inset-0 flex items-center justify-center bg-black z-50"
   >
+  
     <img src="/src/assets/images/vipapannaText.svg" />
   </div>
   <section id="mainpage">
@@ -14,7 +15,7 @@
         <img
           src="/src/assets/images/vipapanna1.svg"
           alt=""
-          class="cursor-pointer"
+          class="cursor-pointer mt-2"
         />
       </router-link>
       <Searchbar class="my-4" />
@@ -43,6 +44,11 @@
             class="lg:h-96 h-56 self-center rounded-lg m-4 cursor-pointer"
             alt=""
             />
+            <h1 
+              v-for="featured in featured"
+              :key="featured">
+              {{ featured.title }}
+            </h1>
         </div>
         
         <button
@@ -62,7 +68,8 @@
       <section class="my-14">
         <div class="flex items-center justify-center flex-col mb-8">
           <div class="flex flex-row justify-center items-center">
-            <p>lokacias</p>
+            <p>lokacia</p>
+            <!--lokacias lol-->
             <div @click="showLocation = !showLocation" class="cursor-pointer">
               <img
                 class="h-12"

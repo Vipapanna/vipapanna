@@ -1,16 +1,20 @@
 <template>
-  <section class="bg-[#4C4556] flex h-auto w-full">
-    <router-link
-      to="/"
-      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 my-4"
-    >
-      <img
-        src="/src/assets/images/vipapanna1.svg"
-        alt=""
-        class="cursor-pointer"
-      />
-    </router-link>
-  </section>
+  <section>
+    <section class="bg-[#4C4556] flex h-auto w-full">
+      <router-link
+        to="/"
+        class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 absolute"
+      >
+        <img
+          src="/src/assets/images/vipapanna1.svg"
+          alt=""
+          class="cursor-pointer mt-2"
+        />
+      </router-link>
+      <Searchbar class="my-4" />
+    </section>
+    </section>
+
   <section style="font-family: 'Cabin', sans-serif">
     <div
       :style="{
@@ -41,6 +45,25 @@
     <div
       class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
     >
+    
+  <div v-if="foodLoading">
+    <div v-for="index in 20" :key="index">
+    <div role="status" class="flex flex-row border-gray-300 border-2 items-center lg:w-[41rem] rounded-xl">
+      <div class="flex items-center justify-center mb-4 bg-gray-300 dark:bg-gray-700 ml-auto h-[7rem] lg:h-[9rem] m-2 rounded-2xl">
+      </div>
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4 mx-auto ml-4"></div>
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4 mx-auto ml-4"></div>
+    <span class="sr-only">Loading...</span>
+    <div class="items-center flex mb-8 lg:w-[40rem] mx-2">
+      <h3 class="lg:text-2xl mx-auto ml-4 text-gray-500 break-all">
+        {{ FoodName }}
+      </h3>
+
+    </div>
+  </div>
+</div>
+</div>
+
     <FoodCard
       @click="openModal(food.food_name, food.food_image_link, food.link_bistro, food.price_bistro, food.link_wolt, food.price_wolt)"
       class="m-auto cursor-pointer"
@@ -113,6 +136,7 @@ export default {
           `https://vypapanna.hybridlab.dev/cms/api/v1/restaurant/food/${this.selectedCard.id}`
         )
         .then((response) => {
+          this.foodLoading = false
           console.log(response);
           const menu = response.data.data.map((item) => ({
             food_name: item.food_name,
@@ -140,6 +164,7 @@ export default {
       price_b:"",
       link_w:"",
       price_w:"",
+      foodLoading:"true",
     };
   },
 };
