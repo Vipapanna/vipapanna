@@ -1,77 +1,86 @@
 <template>
-  <section class="bg-[#4C4556] flex h-auto w-full">
-    <router-link
-      to="/"
-      class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 my-4"
-    >
-      <img
-        src="/src/assets/images/vipapanna1.svg"
-        alt=""
-        class="cursor-pointer"
-      />
-    </router-link>
-  </section>
-  <section style="font-family: 'Cabin', sans-serif">
-    <div
-      :style="{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${selectedCard.image})`,
-      }"
-      class="text-white bg-cover bg-center"
-    >
-      <div class="inset-0 bg-black bg-opacity-40">
-        <router-link to="/">
-          <img class="h-[3rem] ml-3" src="/src/assets/images/back.png" alt="" />
-        </router-link>
-        <div class="flex flex-col pl-10 pt-14 pb-20">
-          <h1 class="text-6xl">{{ selectedCard.title }}</h1>
-          <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
-          <h2 class="text-xl break-normal">{{ selectedCard.address }}</h2>
+  <section class="bg-slate-100">
+    <section class="bg-[#4C4556] flex h-auto w-full">
+      <router-link
+        to="/"
+        class="h-auto w-auto hidden sm:flex md:flex lg:flex lg:ml-3 lg:mr-0 my-4"
+      >
+        <img
+          src="/src/assets/images/vipapanna1.svg"
+          alt=""
+          class="cursor-pointer"
+        />
+      </router-link>
+    </section>
+    <section style="font-family: 'Cabin', sans-serif">
+      <div
+        :style="{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${selectedCard.image})`,
+        }"
+        class="text-white bg-cover bg-center"
+      >
+        <div class="inset-0 bg-black bg-opacity-40">
+          <router-link to="/">
+            <img
+              class="h-[3rem] ml-3"
+              src="/src/assets/images/back.png"
+              alt=""
+            />
+          </router-link>
+          <div class="flex flex-col pl-10 pt-14 pb-20">
+            <h1 class="text-6xl">{{ selectedCard.title }}</h1>
+            <h2 class="text-2xl">RATING: {{ selectedCard.rating }}/5</h2>
+            <h2 class="text-xl break-normal">{{ selectedCard.address }}</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div
-      class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
-    >
-      <FoodCard
-        @click="
-          openModal(
-            food.food_name,
-            food.food_image_link,
-            food.link_bistro,
-            food.price_bistro,
-            food.link_wolt,
-            food.price_wolt
-          )
-        "
-        class="m-auto cursor-pointer"
-        v-for="food in menu"
-        :key="food.id"
-        :FoodName="food.food_name"
-        :FoodImageLink="food.food_image_link"
-      />
-
-      <Dialog
-        v-model:visible="visible"
-        modal
-        :header="modalName"
-        :style="{ width: '50vw' }"
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 mt-10 lg:mx-20 items-center"
       >
-        <img :src="modalImage" alt="" />
-        <div class="flex flex-row justify-between text-xl mt-6 text-blue-400">
-          <a :href="link_w" class="underline">Wolt</a>
-          <p>{{ price_w }} €</p>
-        </div>
+        <FoodCard
+          @click="
+            openModal(
+              food.food_name,
+              food.food_image_link,
+              food.link_bistro,
+              food.price_bistro,
+              food.link_wolt,
+              food.price_wolt
+            )
+          "
+          class="m-auto cursor-pointer"
+          v-for="food in menu"
+          :key="food.id"
+          :FoodName="food.food_name"
+          :FoodImageLink="food.food_image_link"
+        />
 
-        <div class="flex flex-row justify-between text-xl mt-4 text-orange-400">
-          <a :href="link_b" class="underline">Bistro</a>
-          <p>{{ price_b }} €</p>
-        </div>
-      </Dialog>
-    </div>
+        <Dialog v-model:visible="visible" modal :style="{ width: '50vw' }">
+          <img :src="modalImage" alt="" />
+          <div class="flex flex-row justify-between text-2xl mt-6 text-white">
+            <a :href="link_w" class="underline bg-blue-400 p-1 px-2 rounded-lg"
+              >Wolt</a
+            >
+            <p class="text-blue-400">{{ price_w }} €</p>
+          </div>
+
+          <div class="flex flex-row justify-between text-2xl mt-4 text-white">
+            <div class="flex flex-row">
+              <a
+                :href="link_b"
+                class="underline bg-orange-400 p-1 px-2 rounded-lg"
+                >Bistro</a
+              >
+            </div>
+            <p class="text-orange-400">{{ price_b }} €</p>
+          </div>
+        </Dialog>
+      </div>
+    </section>
+
+    <Footer />
   </section>
-
-  <Footer />
 </template>
 
 <script>

@@ -5,7 +5,7 @@
   >
     <img src="/src/assets/images/vipapannaText.svg" />
   </div>
-  <section id="mainpage">
+  <section id="mainpage" class="bg-slate-100">
     <section class="bg-[#4C4556] flex h-auto w-full">
       <router-link
         to="/"

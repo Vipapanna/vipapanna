@@ -2,7 +2,7 @@
   <div class="flex flex-col w-[21rem] m-4 drop-shadow-md hover:drop-shadow-xl">
     <img class="w-[21rem] h-[11rem] rounded-t-2xl" :src="image" alt="" />
 
-    <div class="bg-[#F8EDE3] rounded-b-2xl">
+    <div class="bg-gray-100 rounded-b-2xl">
       <h1 class="text-2xl mt-2 ml-4">{{ title }}</h1>
 
       <div class="flex flex-row ml-3 mb-2">

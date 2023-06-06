@@ -32,13 +32,15 @@
     </div>
 
     <div class="flex flex-row space-x-12 m-auto">
-      <a href="https://www.facebook.com/profile.php?id=100092680371984"
-        ><img src="@/assets/images/fb-logo.svg"
-      /></a>
-      <a href="https://www.instagram.com/vipapanna/"
-        ><img src="@/assets/images/ig-logo.svg"
-      /></a>
-      <a href="https://twitter.com/vipapanna"
+      <a
+        href="https://www.facebook.com/profile.php?id=100092680371984"
+        target="_blank"
+        ><img src="@/assets/images/fb-logo.svg" />
+      </a>
+      <a href="https://www.instagram.com/vipapanna/" target="_blank"
+        ><img src="@/assets/images/ig-logo.svg" />
+      </a>
+      <a href="https://twitter.com/vipapanna" target="_blank"
         ><img src="@/assets/images/tw-logo.svg"
       /></a>
     </div>
